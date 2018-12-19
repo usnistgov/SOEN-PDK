@@ -1,12 +1,6 @@
 from phidl.geometry import rectangle
 from phidl import Device
 
-''' Questions
-- should resistor always autofill pedestal
-- i think we need a pedestal KO layer, or should we have to place explicitly
-- i am confused about oxides. it looks like there are 3 so shouldnt we have three via layers?
-'''
-
 import sys
 for path in sys.path:
     if 'nc-phidl' in path:

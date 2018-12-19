@@ -23,7 +23,7 @@ If you are a Windows/Anaconda user, you must do these commands within an Anacond
 ### Process specification
 - Layer physical dimensions
 - Layout indices and appearance
-- Design rule check (DRC)
+- Design rules and design rule check (DRC)
 
 All of this information can be used by KLayout in some way.
 
