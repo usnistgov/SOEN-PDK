@@ -7,5 +7,9 @@
 
 [protected] means there are no direct commits.
 
+### Directory structure
+It is designed to be able to hold independent PDKs for multiple processes. These can be installed into klayout one at a time.
+<!-- The OLMEC_pkg directory is what get deployed through KLayout's package manager. -->
+
 ### How to document
 Jekyll setup, viewing your local changes, Markup languages, documentation structure...
