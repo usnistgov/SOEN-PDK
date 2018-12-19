@@ -8,3 +8,7 @@ __pycache__/
 
 # test materials
 .pytest_cache
+
+# NIST Jekyll documentation
+_site/
+.sass-cache/
