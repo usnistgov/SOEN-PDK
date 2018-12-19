@@ -11,7 +11,7 @@ See the main documentation on pages.nist.gov (not yet)
 ```bash
 git clone git@github.com:usnistgov/SOEN-PDK.git
 pip install lygadgets
-lygadgets_link OLMEC
+lygadgets_link OLMEC_pkg
 ```
 
 If you are a Windows/Anaconda user, you must do these commands within an Anaconda 3 prompt with administrator privileges.

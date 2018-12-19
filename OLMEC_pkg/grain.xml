@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<salt-grain>
+ <name>OLMEC</name>
+ <version>0.0.1</version>
+ <api-version>0.1</api-version>
+ <title>OLMEC</title>
+ <doc>NIST superconducting optoelectronics technology</doc>
+ <doc-url>https://github.com/usnistgov/SOEN-PDK/blob/master/README.md</doc-url>
+ <url>https://github.com/usnistgov/SOEN-PDK.git/trunk/OLMEC_pkg</url>
+ <author>National Institute of Standards and Technology</author>
+ <author-contact>alexander.tait@nist.gov</author-contact>
+ <license>Pending</license>
+ <depends>
+  <name>Python_packages_for_KLayout</name>
+  <url/>
+  <version>1.0</version>
+ </depends>
+ <icon/>
+</salt-grain>
