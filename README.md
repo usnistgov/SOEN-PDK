@@ -10,7 +10,7 @@ See the main documentation on pages: (not yet)
 ```bash
 git clone git@github.com:usnistgov/SOEN-PDK.git
 pip install lygadgets
-lygadgets_link tech/OLMEC
+lygadgets_link OLMEC
 ```
 
 If you are a Windows/Anaconda user, you must do these commands within an Anaconda 3 prompt with administrator privileges.
