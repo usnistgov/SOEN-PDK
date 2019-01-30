@@ -4,16 +4,6 @@ NIST Superconducting Optoelectronic Networks (SOEN) Process Design Kits (PDK).
 This kit defines the *OLMEC* process, which combines superconducting electronics, such as SNSPDs and three-terminal devices, active optoelectronics, such as LEDs and modulators, and passive optics, such as waveguides and resonators.
 
 
-## Documentation
-All the documentation is html. It is found on the WWW at pages.nist.gov (not yet).
-
-For now, you must build and view it yourself with
-
-```bash
-make docs
-open docs/_build/html/index.html
-```
-
 ## Installation
 ```bash
 git clone git@github.com:usnistgov/SOEN-PDK.git
@@ -26,6 +16,17 @@ If you are a Windows/Anaconda user, you must do these commands within an Anacond
 **Salt package** to come.
 
 **PyPI** release is not planned.
+
+
+## Documentation
+All the documentation is html. It is found on the WWW at pages.nist.gov (not yet).
+
+For now, you must build and view it yourself with
+
+```bash
+make docs
+open docs/_build/html/index.html
+```
 
 
 ## NIST Developers
