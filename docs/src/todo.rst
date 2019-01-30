@@ -20,3 +20,7 @@ This Documentation
 * @amccaugh did you get the via data? Please send me the numbers or fill it out in OLMAC/properties/VIAS.xml
 * slightly odd formatting in auto properties
 * properties explicitly call out OLMAC. They are not set up to handle multiple techs
+
+* quick start to building docs in README
+* pcell rationale
+* quick start to install
