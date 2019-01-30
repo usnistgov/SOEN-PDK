@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-properties>
+ <properties>
+  <frame-color>#01ff6b</frame-color>
+  <fill-color>#01ff6b</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I8</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>202/0 - m2_nw_ebeam - (description)</name>
+  <source>202/0@1</source>
+ </properties>
+ <properties>
+  <frame-color>#008050</frame-color>
+  <fill-color>#008050</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I5</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>205/0 - m2_nw_photo - (description)</name>
+  <source>205/0@1</source>
+ </properties>
+ <properties>
+  <frame-color>#ff8000</frame-color>
+  <fill-color>#ff8000</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I8</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>214/0 - wg_full_ebeam - (description)</name>
+  <source>214/0@1</source>
+ </properties>
+ <properties>
+  <frame-color>#808000</frame-color>
+  <fill-color>#808000</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I5</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>219/0 - wg_full_photo - (description)</name>
+  <source>219/0@1</source>
+ </properties>
+ <properties>
+  <frame-color>#ff80a8</frame-color>
+  <fill-color>#ff80a8</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I3</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>223/0 - gp_photo - (description)</name>
+  <source>223/0@1</source>
+ </properties>
+ <name>Dataprep</name>
+</layer-properties>

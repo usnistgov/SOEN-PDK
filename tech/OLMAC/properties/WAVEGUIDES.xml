@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<waveguides>
+  <!-- Currently this is using the wg_deep = no etch specification -->
+  <waveguide>
+    <name>Strip</name>
+    <radius>5.0</radius> <!-- minimum bend where loss is negligible -->
+    <spacing>5.0</spacing> <!-- as in, between WGs being routed as a group -->
+    <loss>8.05</loss> <!-- db/cm -->
+    <ngroup>4.2</ngroup> <!-- group velocity -->
+    <wavelength>1.22</wavelength> <!-- this is just nominal --> <!-- micrometers -->
+    <component>
+      <layer>wg_deep</layer>
+      <width>0.35</width>
+      <offset>0.0</offset>
+    </component>
+  </waveguide>
+  <waveguide>
+    <name>Strip1550</name>
+    <radius>10.0</radius>
+    <spacing>10.0</spacing>
+    <loss>0.0</loss> <!-- db/cm -->
+    <ngroup>4.4</ngroup>
+    <wavelength>1.55</wavelength>
+    <component>
+      <layer>wg_deep</layer>
+      <width>0.46</width>
+      <offset>0.0</offset>
+    </component>
+  </waveguide>
+  <waveguide>
+    <name>Long haul</name>
+    <radius>20.0</radius> <!-- dummy -->
+    <spacing>15.0</spacing>
+    <loss>1.96</loss> <!-- db/cm, without dopants -->
+    <ngroup>4.4</ngroup> <!-- dummy -->
+    <wavelength>1.22</wavelength>
+    <component>
+      <layer>wg_deep</layer>
+      <width>1.0</width>
+      <offset>0.0</offset>
+    </component>
+  </waveguide>
+  <waveguide>
+    <name>Ridge</name> <!-- untested -->
+    <!-- This is the one used for the LED -->
+    <radius>20.0</radius> <!-- dummy -->
+    <loss>0.3</loss> <!-- db/cm, without dopants --> <!-- dummy -->
+    <ngroup>4.4</ngroup> <!-- dummy -->
+    <wavelength>1.22</wavelength>
+    <component>
+      <layer>wg_deep</layer>
+      <width>0.75</width>
+      <offset>0.0</offset>
+    </component>
+    <component>
+      <layer>wg_shallow</layer>
+      <width>5.0</width> <!-- dummy -->
+      <offset>0.0</offset>
+    </component>
+  </waveguide>
+  <!-- TM versions? -->
+  <transition>
+    <!-- transitions are used just for long waveguides. You have to do it manually for LED -->
+    <name>Strip to Long haul</name>
+    <length>7</length> <!-- dummy -->
+    <loss>0.01</loss> <!-- dB --> <!-- dummy -->
+  </transition>
+</waveguides>

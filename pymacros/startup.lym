@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klayout-macro>
+ <description>OLMEC initialization</description>
+ <version/>
+ <category>pymacros</category>
+ <prolog/>
+ <epilog/>
+ <doc/>
+ <autorun>true</autorun>
+ <autorun-early>false</autorun-early>
+ <shortcut/>
+ <show-in-menu>false</show-in-menu>
+ <group-name/>
+ <menu-path/>
+ <interpreter>python</interpreter>
+ <dsl-interpreter-name/>
+ <text>
+
+# This is the only place where this PDK can run code.
+# Generally speaking, PDK is about containing information,
+# and actions using this information are packaged elsewhere
+
+import lygadgets
+lygadgets.message('NIST technology is present')
+
+# Other startup scripts here...
+
+
+</text>
+</klayout-macro>
