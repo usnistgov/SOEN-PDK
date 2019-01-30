@@ -19,7 +19,7 @@ venv/build_info/testreqs: venv requirements-test.txt
 	@touch venv/build_info/testreqs
 
 test: testbuild
-	source venv/bin/activate && pytest
+	source venv/bin/activate && pytest tech/OLMAC
 
 
 # Documentation

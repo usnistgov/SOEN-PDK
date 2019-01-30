@@ -12,18 +12,17 @@
     For this reason, it is encouraged that you do your own testing with lytest on your own layouts:
     github.com/atait/lytest
 '''
-import os, sys
-pcell_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'pcells'))
-sys.path.append(pcell_dir)  # make pcells visible
+import sys
+from conftest import pcell_dir, olmac_dir
+sys.path.append(olmac_dir)  # make pcells visible
 import pcells
 
 import lytest
 from lytest import contained_phidlDevice, difftest_it
-lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
-lytest.utest_buds.get_test_dir()  # create the test dir if it does not exist yet
 
 @contained_phidlDevice
 def htron(TOP):
+    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
     TOP << pcells.htron()
     TOP << pcells.htron(heater_num_squares = 10).movex(20)
 
@@ -32,6 +31,7 @@ def test_htron(): difftest_it(htron)()
 
 @contained_phidlDevice
 def mmi1x2(TOP):
+    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
     TOP << pcells.mmi1x2()
 
 def test_mmi1x2(): difftest_it(mmi1x2)()
