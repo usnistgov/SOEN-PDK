@@ -28,7 +28,6 @@ For significantly more detailed characterizations, see `the blog entry <https://
 
 Layout
 ------
-Here is `phidl <https://github.com/amccaugh/phidl>`_ script that makes an hTron region.
 
 .. figure:: layout_pics/hTron_cell.png
     :figwidth: 500px
@@ -36,5 +35,5 @@ Here is `phidl <https://github.com/amccaugh/phidl>`_ script that makes an hTron 
 
     The layout produced by the below code.
 
-.. include:: ../../../pcells/htron.py
-    :literal:
+.. literalinclude:: /../tech/OLMAC/pcells/superconductors.py
+    :pyobject: htron

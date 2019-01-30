@@ -79,13 +79,9 @@ If you are a user, you probably don't have to worry about it.
 
 Acknowledgements
 ----------------
-PDK structure was modeled around the General Silicon Photonics (GSiP) tech found within the `SiEPIC-Tools <https://github.com/lukasc-ubc/SiEPIC-Tools>`_ project:
+PDK structure was modeled around the General Silicon Photonics (GSiP) tech found within the `SiEPIC-Tools <https://github.com/lukasc-ubc/SiEPIC-Tools>`_ project: (Lukas Chrostowski, Zeqin Lu, Jonas Flueckiger, Xu Wang, Jackson Klein, Amy Liu, Jaspreet Jhoja, and James Pond)
 
-* Lukas Chrostowski, Zeqin Lu, Jonas Flueckiger, Xu Wang, Jackson Klein, Amy Liu, Jaspreet Jhoja, and James Pond
-
-This documentation is templated upon `lightlab <https://lightlab.readthedocs.io>`_, the experimental frameworks of the Princeton Lightwave Research Laboratory:
-
-* Alex Tait, Thomas Ferreira de Lima, Bhavin Shastri, Mitch Nahmias, Heidi Miller, Siamak Abbaslou, Philip Yechi Ma, Chaoran Huang, Aashu Jha, Eric Blow, and Paul Prucnal.
+This documentation is templated upon `lightlab <https://lightlab.readthedocs.io>`_, the experimental frameworks of the Princeton Lightwave Research Laboratory: (Alex Tait, Thomas Ferreira de Lima, Bhavin Shastri, Mitch Nahmias, Heidi Miller, Siamak Abbaslou, Philip Yechi Ma, Chaoran Huang, Aashu Jha, Eric Blow, and Paul Prucnal)
 
 
 .. toctree::

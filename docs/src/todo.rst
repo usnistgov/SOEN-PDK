@@ -6,10 +6,17 @@ Todo
 PDK Itself
 ----------
 * finalize more cells
+    * SNSPD
     * nTron
     * etc.
+* how to make a cell checklist
+    * create the page in src/cells
+    * put in device images and data
+    * put in the layout image (standardized)
+    * link to code that is in the OLMAC/pcells directory
 * take device data and pictures
 * measure more properties
+* can we make a klayout wrapper for a phidl pcell (pass arguments, make geometry, make ports)?
 
 
 This Documentation

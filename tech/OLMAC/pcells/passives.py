@@ -33,5 +33,4 @@ def mmi1x2(wg_width=0.35, length_port=0.2, length_mmi=2.8, width_mmi=1.55, gap_m
     return D
 
 if __name__ == '__main__':
-    D = mmi1x2()
-    D.write_gds('mmi1x2.gds')
+    mmi1x2().write_gds('mmi1x2.gds')

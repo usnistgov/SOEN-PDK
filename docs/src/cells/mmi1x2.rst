@@ -23,7 +23,6 @@ Characteristics
 
 Layout
 ------
-Here is `phidl <https://github.com/amccaugh/phidl>`_ script that makes an hTron region.
 
 .. figure:: layout_pics/mmi1x2_cell.png
     :figwidth: 500px
@@ -32,5 +31,6 @@ Here is `phidl <https://github.com/amccaugh/phidl>`_ script that makes an hTron 
     The layout produced by the below code.
 
 
-.. include:: ../../../pcells/mmi1x2.py
-    :literal:
+.. literalinclude:: /../tech/OLMAC/pcells/passives.py
+    :pyobject: mmi1x2
+
