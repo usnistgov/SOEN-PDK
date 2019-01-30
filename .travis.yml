@@ -1,0 +1,15 @@
+language: python
+python: '3.6'
+os: linux
+
+# install:
+
+script:
+  - DOCKER=1 make test
+
+# deploy:
+#   # todo: documentation
+#   # todo: salt manager
+#   on:
+#     tags: true
+#     branch: master
