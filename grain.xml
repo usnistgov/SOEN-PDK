@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <salt-grain>
  <name>soen_pdk</name>
- <version>0.0.1</version>
+ <version>0.0.2</version>
  <api-version>0.1</api-version>
  <title>NIST SOEN PDK</title>
  <doc>A Process Design Kit for NIST cryogenic photonics process</doc>
