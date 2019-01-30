@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 #
 # OLMAC PDK documentation build configuration file, created by
-# sphinx-quickstart on Sat Mar 25 20:35:35 2017.
-#
 # Based on the documentation for lightlab (lightlab.readthedocs.io)
 
 # -- General configuration ------------------------------------------------
@@ -75,17 +73,10 @@ numfig = True
 
 # -- Options for HTML output ----------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
+# The theme to use for HTML and HTML Help pages.
 import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-# html_theme_options = {}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -113,7 +104,7 @@ latex_elements = {
     # 'figure_align': 'htbp',
 }
 
-doc_title = 'OLMAC Documentation'
+doc_title = 'NIST SOEN Documentation'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -128,7 +119,9 @@ intersphinx_mapping = {'python': ('https://docs.python.org/', None)}
 
 # Do this conversion first
 import sys, os
-sys.path.append(os.path.realpath(os.curdir))  # This is needed for windows
+# import pdb; pdb.set_trace()
+sys.path.append(os.path.realpath(os.path.dirname(__file__)))
 from properties2rst import convert_all
-def setup(app):
-    app.connect('builder-inited', convert_all)
+convert_all()
+# def setup(app):
+#     app.connect('builder-inited', convert_all)

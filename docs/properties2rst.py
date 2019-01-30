@@ -3,17 +3,21 @@ import os
 import sys
 from glob import iglob
 
-techtop_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-default_propdir = os.path.join(techtop_dir, 'properties')
-default_rstdir = os.path.join(techtop_dir, 'docs', 'src', 'properties')
-all_propfiles = [os.path.basename(file) for file in iglob(default_propdir + '/*.xml')]
+doc_dir = os.path.realpath(os.path.join(os.path.dirname(__file__)))
+olmac_dir = os.path.realpath(os.path.join(doc_dir, '..', 'tech', 'OLMAC'))
+print(doc_dir, '\n', olmac_dir)
 
-def convert_all(_):
-    for filename in all_propfiles:
-        properties2rst(os.path.join(default_propdir, filename))
+def convert_all(tech_dir=None):
+    if tech_dir is None:
+        tech_dir = olmac_dir
+    tech_name = os.path.basename(tech_dir)
+    rstdir = os.path.join(doc_dir, 'src', 'properties')
+    propdir = os.path.join(tech_dir, 'properties')
+    for filename in iglob(propdir + '/*.xml'):
+        properties2rst(filename, rstdir)
 
 
-def properties2rst(xmlfile, outdir=None, title=None):
+def properties2rst(xmlfile, outdir, title=None):
     xmlfile = os.path.realpath(xmlfile)
     filename_base = os.path.splitext(os.path.basename(xmlfile))[0]
     if title is None:
@@ -70,4 +74,4 @@ def dict2bullets(d, depth=0):
 
 
 if __name__ == '__main__':
-    properties2rst(sys.argv[1])
+    convert_all()
