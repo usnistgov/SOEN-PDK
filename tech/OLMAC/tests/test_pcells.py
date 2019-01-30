@@ -22,16 +22,18 @@ from lytest import contained_phidlDevice, difftest_it
 
 @contained_phidlDevice
 def htron(TOP):
-    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
     TOP << pcells.htron()
     TOP << pcells.htron(heater_num_squares = 10).movex(20)
 
-def test_htron(): difftest_it(htron)()
+def test_htron():
+    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
+    difftest_it(htron)()
 
 
 @contained_phidlDevice
 def mmi1x2(TOP):
-    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
     TOP << pcells.mmi1x2()
 
-def test_mmi1x2(): difftest_it(mmi1x2)()
+def test_mmi1x2():
+    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
+    difftest_it(mmi1x2)()

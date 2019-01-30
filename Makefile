@@ -19,11 +19,11 @@ venv/build_info/testreqs: venv requirements-test.txt
 	@touch venv/build_info/testreqs
 
 test: testbuild
-	source venv/bin/activate && pytest tech/OLMAC
+	source venv/bin/activate && pytest tech/OLMAC/tests
 
 
 # Documentation
-SPHINXOPTS    = -j4
+SPHINXOPTS = -j4
 BUILDDIR = docs/_build
 docbuild: venv/build_info/docreqs
 venv/build_info/docreqs: venv requirements-docs.txt
