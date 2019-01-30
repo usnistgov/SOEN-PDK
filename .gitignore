@@ -8,6 +8,7 @@ __pycache__/
 
 # test materials
 .pytest_cache
+run_layouts
 
 # NIST Jekyll documentation
 _site
