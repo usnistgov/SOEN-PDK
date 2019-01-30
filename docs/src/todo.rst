@@ -13,7 +13,7 @@ PDK Itself
     * create the page in src/cells
     * put in device images and data
     * put in the layout image (standardized)
-    * link to code that is in the OLMAC/pcells directory
+    * link to code that is in the OLMAC/olmac_pcells directory
 * take device data and pictures
 * measure more properties
 * can we make a klayout wrapper for a phidl pcell (pass arguments, make geometry, make ports)?
@@ -32,7 +32,3 @@ This Documentation
 
 * how do we put in the fabrication steps
 * document DRC
-
-* pcell rationale
-    * to import the pcells, add the "pcells" directory to your python path with sys.path.append(path_to_pcells). Then from superconductors import htron
-    * how and why self testing

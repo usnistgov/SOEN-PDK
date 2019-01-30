@@ -4,4 +4,4 @@ version = '0.0.1'
 release = version + ""
 
 if __name__ == '__main__':
-    print('OLMAC v' + version)
+    print('NIST SOEN PDK v' + version)

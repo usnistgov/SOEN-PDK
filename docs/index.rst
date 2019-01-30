@@ -32,7 +32,7 @@ camera_ready_OLMAC.lyp
 
 :ref:`PCells <cells>`
 *********************
-This PDK includes standard devices as fixed cells (GDS) and `phidl <https://github.com/amccaugh/phidl>`_ code (python). These HTML pages include optical/electron micrographs and measured data of the standard devices.
+This PDK includes standard devices as fixed cells (GDS) and `phidl <https://github.com/amccaugh/phidl>`_ code (python). See the link above for usage instructions. These HTML pages include optical/electron micrographs and measured data of the standard devices.
 
 .. image:: src/cells/layout_pics/hTron_blender.png
     :target: src/cells/hTron.html
