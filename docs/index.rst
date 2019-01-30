@@ -1,5 +1,5 @@
-OLMAC Technology Definition and Documentation
-================================================
+NIST SOEN Process Design Kits
+=================================================
 
 This technology package, a.k.a process design kit (PDK), defines the NIST superconducting optolectronics process: **OLMAC**. It is in the `klayout <https://www.klayout.de>`_ format of technology definition.
 
@@ -15,8 +15,20 @@ NIST, PML, Applied Physics, Faint/Quantum Nanophotonics group, Boulder, CO, Unit
 
 :ref:`Jump to installation <installation>`
 
+
 What's in the box
 -----------------
+
+:ref:`Design Layers <layers>`
+******************************
+GDS layers, datatypes, names, and appearance in the ``.lyp`` format
+
+klayout_layers_OLMAC.lyp
+    Main design layers
+
+camera_ready_OLMAC.lyp
+    Another layer appearance specification that is better for making figures in powerpoint or papers.
+
 
 :ref:`PCells <cells>`
 *********************
@@ -33,15 +45,21 @@ This PDK includes standard devices as fixed cells (GDS) and `phidl <https://gith
     :height: 150px
 
 
-:ref:`Design Tools <design_rules>`
+:ref:`Design Rules <design_rules>`
 ******************************************
-GDS layers, datatypes, names, and appearance.
-All of these components integrate with the klayout application
+They are visually explained in this documentation (not yet). A ``.lydrc`` file is included to integrate with klayout's DRC engine.
+
+
+Layer Stack (this will link to the powerpoints)
+***********************************************
+Thicknesses, materials, and fabrication steps.
+
+:ref:`xsection`: you can visualize the cross-sectional geometry of any layout in KLayout
 
 
 :ref:`Platform Properties <properties>`
 ***************************************
-Measured behavioral properties of the platform
+Measured behavioral properties of the platform, such as waveguide loss and wire resistance.
 
 .. warning::
 
@@ -49,39 +67,36 @@ Measured behavioral properties of the platform
 
 .. note::
 
-    We have a package in development that allows you to read these properties into phidl and use them in your code. Let's say you want to make a resistor function with a layer argument (wiring, doped Si, etc.). That function could read the sheet resistance out of the properties file. If properties change, the resistor geometry will change automatically. Updates to come.
+    These are just XML files. We have a package in development that allows you to read these properties into phidl and use them in your layout/analysis code. Updates to come.
 
 
-Fabrication Procedures
+Mask preparation procedures
 ***************************
-#. Fabrication steps
-#. Process sheets (too detailed?)
-#. Mask preparation procedures
+Section not finished. These files are found in the dataprep directory and run with the ``lymask`` package.
 
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Contents
-
-    src/installation
-    src/cells/index
-    src/layers
-    src/xsection
-    src/drc/index
-    src/properties/index
-    src/directories
-    src/todo
+If you are a user, you probably don't have to worry about it.
 
 
 Acknowledgements
 ----------------
-This documentation is templated upon `lightlab <https://lightlab.readthedocs.io>`_, the experimental frameworks of the Princeton Lightwave Research Laboratory:
-
-* Paul Prucnal, Thomas Ferreira de Lima, Bhavin Shastri, Heidi Miller, Siamak Abbaslou, Yechi Ma, Chaoran Huang, Aashu Jha, Eric Blow, and Mitch Nahmias.
-
 PDK structure was modeled around the General Silicon Photonics (GSiP) tech found within the `SiEPIC-Tools <https://github.com/lukasc-ubc/SiEPIC-Tools>`_ project:
 
 * Lukas Chrostowski, Zeqin Lu, Jonas Flueckiger, Xu Wang, Jackson Klein, Amy Liu, Jaspreet Jhoja, and James Pond
 
+This documentation is templated upon `lightlab <https://lightlab.readthedocs.io>`_, the experimental frameworks of the Princeton Lightwave Research Laboratory:
 
+* Alex Tait, Thomas Ferreira de Lima, Bhavin Shastri, Mitch Nahmias, Heidi Miller, Siamak Abbaslou, Philip Yechi Ma, Chaoran Huang, Aashu Jha, Eric Blow, and Paul Prucnal.
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Contents
+
+    src/installation
+    src/layers
+    src/cells/index
+    src/drc/index
+    src/xsection
+    src/properties/index
+    src/todo
 
