@@ -13,8 +13,9 @@ purge: clean
 
 # Testing
 testbuild: venv/build_info/testreqs
-venv/build_info/testreqs: requirements-test.txt
+venv/build_info/testreqs: venv requirements-test.txt
 	source venv/bin/activate && pip install -r requirements-test.txt
+	@mkdir -p venv/build_info/testreqs
 	@touch venv/build_info/testreqs
 
 test: testbuild
@@ -25,11 +26,12 @@ test: testbuild
 SPHINXOPTS    = -j4
 BUILDDIR = docs/_build
 docbuild: venv/build_info/docreqs
-venv/build_info/docreqs: requirements-docs.txt
+venv/build_info/docreqs: venv requirements-docs.txt
 	source venv/bin/activate && pip install -r requirements-docs.txt
-	@touch venv/build_info/docreqs
+	mkdir -p venv/build_info/docreqs
+	touch venv/build_info/docreqs
 
-html:
+html: docbuild
 	( \
 		source venv/bin/activate; \
 		sphinx-build -b html $(SPHINXOPTS) docs $(BUILDDIR)/html; \
@@ -37,7 +39,7 @@ html:
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
-latexpdf: venv
+latexpdf: docbuild
 	( \
 		source venv/bin/activate; \
 		sphinx-build -b latex $(SPHINXOPTS) docs $(BUILDDIR)/latex; \
