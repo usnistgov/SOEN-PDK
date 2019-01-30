@@ -10,5 +10,8 @@ __pycache__/
 .pytest_cache
 
 # NIST Jekyll documentation
-_site/
-.sass-cache/
+_site
+.sass-cache
+
+# virtual environments for testing and building documentation
+venv
