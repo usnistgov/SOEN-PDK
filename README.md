@@ -11,7 +11,7 @@ See the main documentation on pages.nist.gov (not yet)
 ```bash
 git clone git@github.com:usnistgov/SOEN-PDK.git
 pip install lygadgets
-lygadgets_link OLMEC_pkg
+lygadgets_link tech/OLMAC
 ```
 
 If you are a Windows/Anaconda user, you must do these commands within an Anaconda 3 prompt with administrator privileges.
@@ -19,33 +19,29 @@ If you are a Windows/Anaconda user, you must do these commands within an Anacond
 **Salt package** to come.
 
 
-## Contents
-### Process specification
-- Layer physical dimensions
-- Layout indices and appearance
-- Design rules and design rule check (DRC)
+## Documentation
+All the documentation is html. It is not currently on the WWW. Build and view it yourself with
 
-All of this information can be used by KLayout in some way.
-
-### Platform properties
-- Waveguide loss
-- Resistivity
-- Critical temperature
-- etc.
-
-### Device PCells
-Tested device designed as fixed cells (OAS/GDS) and phidl code (python).
-
-Detailed docs include optical/electron micrographs and measured data of the standard devices.
-
-### Fabrication info
-- Process steps
-- Mask data preparation
-
+```bash
+make docs
+open docs/_build/html/index.html
+```
 
 
 ## NIST Developers
-See the [Developer documentation](README-developer.md)
+### Branching structure
+- master [protected]: release code, must work at all times; pulls only from development; every merge commit is a tagged version such as "v0.1.1"
+- development: base point for new features, should be working almost all the time; when ready, merges new features into master
+- nist-pages [protected]: documentation "master" that is hosted, based off of *development* and pulls only from development; features documented that are not yet released should be marked as "beta" or "pre-release"
+- other: in-progress features, based off of development
+
+[protected] means there are no direct commits.
+
+### Directory structure
+It is designed to be able to hold independent PDKs for multiple processes. These can be installed into klayout one at a time.
+
+### How to document
+Jekyll setup, viewing your local changes, Markup languages, documentation structure...
 
 
 
