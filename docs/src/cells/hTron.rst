@@ -35,5 +35,5 @@ Layout
 
     The layout produced by the below code.
 
-.. literalinclude:: /../tech/OLMAC/pcells/superconductors.py
+.. literalinclude:: /../tech/OLMAC/olmac_pcells/superconductors.py
     :pyobject: htron

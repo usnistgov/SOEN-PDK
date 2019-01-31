@@ -31,6 +31,6 @@ Layout
     The layout produced by the below code.
 
 
-.. literalinclude:: /../tech/OLMAC/pcells/passives.py
+.. literalinclude:: /../tech/OLMAC/olmac_pcells/passives.py
     :pyobject: mmi1x2
 

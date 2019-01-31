@@ -13,9 +13,9 @@
     github.com/atait/lytest
 '''
 import sys
-from conftest import pcell_dir
-sys.path.append(pcell_dir)  # make pcell modules visible
-import detectors, sources, passives, superconductors
+from conftest import pcell_dir, olmac_dir
+sys.path.append(olmac_dir)  # make pcell modules visible
+from olmac_pcells import detectors, sources, passives, superconductors
 
 import lytest
 from lytest import contained_phidlDevice, difftest_it

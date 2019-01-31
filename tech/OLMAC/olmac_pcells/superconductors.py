@@ -62,5 +62,4 @@ def htron(nanowire_width = 0.15, nanowire_spacing = 0.1,
 
 
 if __name__ == '__main__':
-    D = htron()
-    D.write_gds('htron.gds')
+    htron().write_gds('htron.gds')
