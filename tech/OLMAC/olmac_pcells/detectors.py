@@ -20,6 +20,12 @@ def wg_to_snspd(wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,
             wgnw_length (float): length of out-and-back
             wgnw_gap (float): spacing between the out-and-back wires
             wg_width (float): waveguide width
+
+        Ports:
+            el_1: wiring port
+            el_gnd: wiring port
+            wg_in: input optical port
+            de_edge: edge of explicit waveguide on the SNSPD side
     '''
 
     D = Device('wg_to_snspd')
@@ -67,13 +73,13 @@ def wg_to_snspd(wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,
     exit_bend = D << pg.optimal_90deg(width=meander_width, num_pts=15,
                                       length_adjust=1, layer=lys['m2_nw'])
     exit_bend.connect(port=2, destination=taper2.ports[2])
-    D.add_port('wiring2', port=exit_bend.ports[1])
+    D.add_port('el_gnd', port=exit_bend.ports[1])
 
     exit_taper = D << pg.optimal_step(start_width=meander_width, end_width=meander_width*4,
                                       num_pts=50, width_tol=1e-3, anticrowding_factor=1.2,
                                       layer=lys['m2_nw'])
     exit_taper.connect(1, meander.ports[2])
-    D.add_port('wiring1', port=exit_taper.ports[2])
+    D.add_port('el_1', port=exit_taper.ports[2])
 
     # Waveguide and optical ports
     wg = D << pg.compass(size = [wgnw_length + wgnw_distance_to_edge, wg_width], layer = lys['wg_deep'])
@@ -81,10 +87,10 @@ def wg_to_snspd(wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,
     wg.y = wgnw.y
 
     D.add_port('de_edge', port=wg.ports['E'])
-    D.add_port('optical', port=wg.ports['W'])
+    D.add_port('wg_in', port=wg.ports['W'])
     D.ports['de_edge'].info['is_waveguide_edge'] = True
 
-    pos = D.ports['optical'].midpoint
+    pos = D.ports['wg_in'].midpoint
     D.move(-1*pos)
 
     return D
