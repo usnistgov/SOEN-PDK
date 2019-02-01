@@ -7,42 +7,49 @@ lyp_file = os.path.join(os.path.dirname(__file__), '..', 'klayout_layers_OLMAC.l
 lys = load_lyp(lyp_file)
 
 
-def wg_to_snspd(meander_width=0.4, num_squares=5000.0,
-                wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,
+def wg_to_snspd(wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,
+                num_squares=5000.0, meander_width=0.4, meander_fill_factor=0.5,
                 wg_width=0.75):
-    # the length and width of the meander are chosen so that it is approximately square
+    ''' Waveguide coupled to SNSPD with inductor (meander).
+        The length and width of the meander are chosen so that it is approximately square
+
+        Args:
+            meander_width (float): nanowire width within meander inductor
+            num_squares (float): total squares in meander and out-and-back
+            wgnw_width (float): width of out-and-back nanowire
+            wgnw_length (float): length of out-and-back
+            wgnw_gap (float): spacing between the out-and-back wires
+            wg_width (float): waveguide width
+    '''
 
     D = Device('wg_to_snspd')
-    # If given number of squares as input, calculate number of squares in meander.
-    MEANDER_FILL_FACTOR = .5
-    meander_pitch = meander_width/MEANDER_FILL_FACTOR
 
-    numsquares_meander = num_squares - 2*wgnw_length/wgnw_width
-    if numsquares_meander<1000:
+    # Calculations and checks
+    numsquares_wgnw = 2 * wgnw_length / wgnw_width
+    numsquares_meander = num_squares - numsquares_wgnw
+    if numsquares_meander < 1000:
+        print('Warning: Not enough squares in SNSPD meander. Clipped to 1000 from {:.1f}'.format(numsquares_meander))
         numsquares_meander=1000
+    wgnw_pitch = wgnw_width + wgnw_gap
+    meander_pitch = meander_width / meander_fill_factor
+    meander_length = np.sqrt(numsquares_meander * meander_width * meander_pitch)
 
-    wgnw_pitch = wgnw_width+wgnw_gap
-
-    meander_length = np.sqrt(numsquares_meander*meander_width*meander_pitch)
-
-    Snspd = pg.snspd(wire_width = meander_width, wire_pitch = meander_pitch, terminals_same_side = False, size = (meander_length,None),
-                              num_squares=numsquares_meander, layer = lys['m2_nw'])
-    meander = D.add_ref(Snspd)
-    numsquares_meander = meander.info['num_squares']
+    meander = D << pg.snspd(wire_width = meander_width, wire_pitch = meander_pitch,
+                            terminals_same_side = False, size = (meander_length,None),
+                            num_squares=numsquares_meander, layer = lys['m2_nw'])
     meander.reflect(p1=(0,0), p2=(1,0))
 
-    wgnw = D.add_ref(pg.optimal_hairpin(width = wgnw_width, pitch = wgnw_pitch, length = wgnw_length, layer = lys['m2_nw']))
-    wgnw.reflect(p1 = wgnw.ports[1].midpoint, p2 = wgnw.ports[2].midpoint)
-    numsquares_wgnw = 2*wgnw_length/wgnw_width
-    #
     Taper = pg.optimal_step(start_width = wgnw_width, end_width = meander_width, num_pts = 50, width_tol = 1e-3,
-                     anticrowding_factor = 1.2, layer = lys['m2_nw'])
-    taper = D.add_ref(Taper)
+                                 anticrowding_factor = 1.2, layer = lys['m2_nw'])
+    taper1 = D << Taper
+    taper1.connect(port = 2, destination = meander.ports[1])
+
+    wgnw = D << pg.optimal_hairpin(width = wgnw_width, pitch = wgnw_pitch, length = wgnw_length, layer = lys['m2_nw'])
+    wgnw.reflect(p1 = wgnw.ports[1].midpoint, p2 = wgnw.ports[2].midpoint)
+
     #
-    taper.connect(port = 2, destination = meander.ports[1])
-    #
-    wgnw.xmax = meander.xmin
-    wgnw.connect(port = 1, destination = taper.ports[1])
+    # wgnw.xmax = meander.xmin
+    wgnw.connect(port = 1, destination = taper1.ports[1])
 
 
     taper2 = D.add_ref(Taper)
