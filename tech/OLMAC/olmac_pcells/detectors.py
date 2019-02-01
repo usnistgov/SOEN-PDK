@@ -9,11 +9,12 @@ lys = load_lyp(lyp_file)
 import lyipc.client as ipc
 kqp = ipc.generate_display_function(None, 'debugging.gds')
 
-def wgnw(meander_width=0.4, num_squares=5000.0,
-         wgnw_width=0.1, wgnw_distance=0.2, wgnw_gap=0.15, wgnw_length=100):
+def wg_to_snspd(meander_width=0.4, num_squares=5000.0,
+                wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,
+                wg_width=0.75):
     # the length and width of the meander are chosen so that it is approximately square
 
-    D = Device('wgnw')
+    D = Device('wg_to_snspd')
     # If given number of squares as input, calculate number of squares in meander.
     MEANDER_FILL_FACTOR = .5
     meander_pitch = meander_width/MEANDER_FILL_FACTOR
@@ -65,7 +66,8 @@ def wgnw(meander_width=0.4, num_squares=5000.0,
     # p = D.add_port(port = route2.ports[1], name = 'wiring2')
     # p.orientation = 0
 
-    ## Add optical ports
+    ## Add optical piece and ports
+    wgnw_distance = wg_width - wgnw_width - wgnw_gap / 2
     wg = D.add_ref(pg.compass(size = [wgnw_length + wgnw_distance, wgnw_width+wgnw_pitch+wgnw_distance*2], layer = lys['wg_deep']))
     wg.xmax = wgnw.xmax
     wg.y = wgnw.y
