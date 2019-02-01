@@ -23,8 +23,6 @@ The basic in-out response is shown in :numref:`response`. There is a threshold p
 
     Basic response. Different lines correspond to different device sizes.
 
-For significantly more detailed characterizations, see `the blog entry <https://qittlab-nuc-01.campus.nist.gov/wordpress/testing-high-speed-htron/>`_.
-
 
 Layout
 ------

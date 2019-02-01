@@ -30,5 +30,3 @@ Layout
 
     Need to work out the standard values, make a python file, then make a GDS...
 
-
-.. bibliography:: /soen-bibliography.bib

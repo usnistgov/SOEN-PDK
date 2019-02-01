@@ -94,5 +94,6 @@ This documentation is templated upon `lightlab <https://lightlab.readthedocs.io>
     src/drc/index
     src/xsection
     src/properties/index
+    src/zreferences
     src/todo
 
