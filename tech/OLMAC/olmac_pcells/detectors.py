@@ -6,8 +6,6 @@ from phidl.utilities import load_lyp
 lyp_file = os.path.join(os.path.dirname(__file__), '..', 'klayout_layers_OLMAC.lyp')
 lys = load_lyp(lyp_file)
 
-import lyipc.client as ipc
-kqp = ipc.generate_display_function(None, 'debugging.gds')
 
 def wg_to_snspd(meander_width=0.4, num_squares=5000.0,
                 wgnw_width=0.1, wgnw_length=100, wgnw_gap=0.15,

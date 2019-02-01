@@ -37,3 +37,12 @@ def mmi1x2(TOP):
 def test_mmi1x2():
     lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
     difftest_it(mmi1x2)()
+
+
+@contained_phidlDevice
+def wg_to_snspd(TOP):
+    TOP << detectors.wg_to_snspd()
+
+def test_wg_to_snspd():
+    lytest.utest_buds.test_root = pcell_dir  # look for ref_layouts in the right place
+    difftest_it(wg_to_snspd)()
