@@ -26,6 +26,9 @@ import olmac_pcells
 # from SiEPIC.utils.pcells import KLayoutPCell
 
 
+# Todo handle TypeList arguments
+# Not handled: arguments that are other phidl.Device objects
+
 class OLMACCell(pya.PCellDeclarationHelper):
     TECHNOLOGY = pya.Technology.technology_by_name('OLMAC')
 
@@ -46,7 +49,6 @@ def cellname_to_kwargs(cellname):
     return func_kwargs
 
 
-import hashlib
 class lywrap_wg_to_snspd(OLMACCell):
     def __init__(self):
         # Important: initialize the super class
@@ -86,32 +88,114 @@ class lywrap_wg_to_snspd(OLMACCell):
         self.cell.copy_tree(tempcell)
 
 
-def lywrap(phidl_function):
-    import inspect
-    # return class
+def pytype_to_PCelltype(arg_type):
+    if issubclass(arg_type, int):
+        return pya.PCellDeclarationHelper.TypeInt
+    if issubclass(arg_type, float):
+        return pya.PCellDeclarationHelper.TypeDouble
+    if issubclass(arg_type, (list, tuple)):
+        return pya.PCellDeclarationHelper.TypeList
+    if issubclass(arg_type, str):
+        return pya.PCellDeclarationHelper.TypeString
+    if issubclass(arg_type, bool):
+        return pya.PCellDeclarationHelper.TypeBoolean
+    if issubclass(arg_type, NoneType):
+        return pya.PCellDeclarationHelper.TypeNone
 
 
+import inspect
+def my_argspec(function):
+    signature = inspect.signature(function)
+    args = list()
+    kwargs = dict()
+    for key, param in signature.parameters.items():
+        kwargs[key] = param.default
+    return args, kwargs
 
-class OLMAC_Library(pya.Library):
+
+class WrappedPCell(OLMACCell):
+    ''' I think this is not specific to phidl implementation. It just needs some function.
+        Oh wait, yes it is (barely) because of write_gds.
+    '''
+    generating_function = None
+
+    def kwarg_to_param(self, key, default=None):
+        self.param(key, pytype_to_PCelltype(type(default)), key, default=default)
+
+    def __init__(self, generating_function):
+        self.generating_function = generating_function
+        super().__init__()
+        args, kwargs = my_argspec(self.generating_function)
+        for arg in args:
+            self.kwarg_to_param(arg)
+        for key, default in kwargs.items():
+            self.kwarg_to_param(key, default)
+
+    def display_text_impl(self):
+        text = self.generating_function.__name__ + '_'
+        for pdecl, pval in zip(self.get_parameters(), self.get_values()):
+            # sanitize _'s and ='s
+            if isinstance(pval, str):
+                pval.replace('_', '[_]')
+                pval.replace('=', '[=]')
+            text += '_{}={}'.format(pdecl.name, pval)
+        return text
+
+    def get_params_as_kwargs(self):
+        # todo: handle non-keyword args
+        all_args = list()
+        all_kwargs = dict()
+        for pdecl, pval in zip(self.get_parameters(), self.get_values()):
+            all_kwargs[pdecl.name] = pval
+        return all_args, all_kwargs
+
+    def produce_impl(self):
+        tempfile = os.path.realpath('temp.gds')
+        # Produce the geometry
+        args, kwargs = self.get_params_as_kwargs()
+        phidl_Device = self.generating_function(*args, **kwargs)
+        phidl_Device.write_gds(tempfile, auto_rename=False)
+
+        # Load the geometry into a klayout format
+        templayout = pya.Layout()
+        templayout.read(tempfile)
+        tempcell = templayout.top_cell()
+        os.remove(tempfile)
+
+        # Import the new cell into this pcell implementation
+        self.cell.name = tempcell.name
+        self.cell.copy_tree(tempcell)
+
+
+class WrappedLibrary(pya.Library):
+    tech_name = None
+    all_funcs_to_wrap = None
+    description = None
+
     def __init__(self):
-        tech_name = "OLMAC"
-        library = tech_name
+        print("Initializing '%s' Library." % self.tech_name)
 
-        print("Initializing '%s' Library." % library)
+        # Not doing fixed GDS in this Library
 
-        self.description = "NIST SOEN"
-
-        # Not doing fixed GDS
-
-        self.layout().register_pcell("wg_to_snspd", lywrap_wg_to_snspd())
+        # self.layout().register_pcell("wg_to_snspd", lywrap_wg_to_snspd())  # first version
+        for func in self.all_funcs_to_wrap:
+            self.layout().register_pcell(func.__name__, WrappedPCell(func))  # generic version
 
         # Register us the library with the technology name
         # If a library with that name already existed, it will be replaced then.
-        self.register(library)
+        self.register(self.tech_name)
 
         if int(pya.Application.instance().version().split('.')[1]) &gt; 24:
             # KLayout v0.25 introduced technology variable:
-            self.technology=tech_name
+            self.technology = self.tech_name
+
+
+from olmac_pcells import wg_to_snspd, htron
+class OLMAC_Library(WrappedLibrary):
+    tech_name = "OLMAC"
+    all_funcs_to_wrap = [wg_to_snspd, htron]
+    description = "NIST SOEN"
+
 
 OLMAC_Library()
 
