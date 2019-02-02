@@ -22,30 +22,53 @@ import sys, os
 sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
 import olmac_pcells
 
-from SiEPIC.utils import get_technology_by_name
+# from SiEPIC.utils import get_technology_by_name
 # from SiEPIC.utils.pcells import KLayoutPCell
 
 
 class OLMACCell(pya.PCellDeclarationHelper):
-    TECHNOLOGY = get_technology_by_name('OLMAC')
+    TECHNOLOGY = pya.Technology.technology_by_name('OLMAC')
 
+def cellname_to_kwargs(cellname):
+    # for now params have to be float, int, or str not sub-objects
+    func_kwargs = dict()
+    func_name, paramstr = cellname.split('__')  # double underscore has been sanitized
+    for oneparamstr in paramstr.split('_'):  # todo: unsanitize _ and =
+        name, val = oneparamstr.split('=')
+        try:
+            val = int(val)
+        except ValueError:
+            try:
+                val = float(val)
+            except ValueError:
+                pass
+        func_kwargs[name] = val
+    return func_kwargs
+
+
+import hashlib
 class lywrap_wg_to_snspd(OLMACCell):
     def __init__(self):
         # Important: initialize the super class
         super().__init__()
         # declare the parameters
-        # wgnw_width=0.1
-        # wgnw_length=100
-        # wgnw_gap=0.15
-        # num_squares=5000.0
-        # meander_width=0.4
-        # meander_fill_factor=0.5
-        # wg_width=0.75
-        self.param("wgnw_length", self.TypeDouble, "Length", default = 100)
+        self.param('wgnw_width', self.TypeDouble, 'wgnw_width', default = 0.1)
+        self.param('wgnw_length', self.TypeDouble, 'wgnw_length', default = 100)
+        self.param('wgnw_gap', self.TypeDouble, 'wgnw_gap', default = 0.15)
+        self.param('num_squares', self.TypeDouble, 'num_squares', default = 5000.0)
+        self.param('meander_width', self.TypeDouble, 'meander_width', default = 0.4)
+        self.param('meander_fill_factor', self.TypeDouble, 'meander_fill_factor', default = 0.5)
+        self.param('wg_width', self.TypeDouble, 'wg_width', default = 0.75)
 
     def display_text_impl(self):
-        # Provide a descriptive text for the cell
-        return "SNSPD_%s" % self.wgnw_length
+        text = 'wg_to_snspd_'
+        for pdecl, pval in zip(self.get_parameters(), self.get_values()):
+            # sanitize _'s and ='s
+            if isinstance(pval, str):
+                pval.replace('_', '[_]')
+                pval.replace('=', '[=]')
+            text += '_{}={}'.format(pdecl.name, pval)
+        return text
 
     def coerce_parameters_impl(self):
         pass
