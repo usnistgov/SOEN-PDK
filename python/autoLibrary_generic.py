@@ -61,14 +61,20 @@ def my_argspec(function):
     return args, kwargs
 
 
-def phidlDevice_to_pyaCell(initial_cell, pya_cell):
+
+def anyCell_to_pyaCell(initial_cell, pya_cell, write_unboundmeth):
     ''' Transfers the geometry of some initial_cell into a klayout format.
         This initial_cell can be any type of layout object, even in a different language.
         It must provide a way to write its geometry to a layout and have only one top cell.
+
+        write_unboundmeth is a callable thing that will take the initial_cell and a filename,
+        and save a gds at that location. This is typically a method of the initial_cell's class.
+
+        For example: if type(initial_cell) == phidl.Device, then write_unboundmeth == Device.write_gds
     '''
     # Save the geometry of the initial cell
     tempfile = os.path.realpath('temp_externalCell_to_pyaCell.gds')
-    initial_cell.write_gds(tempfile, auto_rename=False)
+    write_unboundmeth(initial_cell, tempfile)
     # Import the gds into pya.Cell format
     templayout = pya.Layout()
     templayout.read(tempfile)
@@ -78,6 +84,16 @@ def phidlDevice_to_pyaCell(initial_cell, pya_cell):
     pya_cell.name = tempcell.name
     pya_cell.copy_tree(tempcell)
     return pya_cell
+
+
+def phidlDevice_to_pyaCell(initial_cell, pya_cell):
+    ''' The phidl version of anyCell_to_pyaCell that gets the correct write method '''
+    from phidl import Device
+    default_write = Device.write_gds
+    # we don't want that extra hierarchy layer: 'topcell'
+    def write_unboundmeth(device_obj, filename):
+        return default_write(device_obj, filename, auto_rename=False)
+    return anyCell_to_pyaCell(initial_cell, pya_cell, write_unboundmeth)
 
 
 class WrappedPCell(pya.PCellDeclarationHelper):
