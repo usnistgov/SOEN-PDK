@@ -11,6 +11,7 @@
 
 import pya
 import os
+from cell_translations import phidlDevice_to_pyaCell
 
 def cellname_to_kwargs(cellname):
     ''' Converts the naming convention for parameter-based cell naming back into a dict of kwargs '''
@@ -59,41 +60,6 @@ def my_argspec(function):
     for key, param in signature.parameters.items():
         kwargs[key] = param.default
     return args, kwargs
-
-
-
-def anyCell_to_pyaCell(initial_cell, pya_cell, write_unboundmeth):
-    ''' Transfers the geometry of some initial_cell into a klayout format.
-        This initial_cell can be any type of layout object, even in a different language.
-        It must provide a way to write its geometry to a layout and have only one top cell.
-
-        write_unboundmeth is a callable thing that will take the initial_cell and a filename,
-        and save a gds at that location. This is typically a method of the initial_cell's class.
-
-        For example: if type(initial_cell) == phidl.Device, then write_unboundmeth == Device.write_gds
-    '''
-    # Save the geometry of the initial cell
-    tempfile = os.path.realpath('temp_externalCell_to_pyaCell.gds')
-    write_unboundmeth(initial_cell, tempfile)
-    # Import the gds into pya.Cell format
-    templayout = pya.Layout()
-    templayout.read(tempfile)
-    tempcell = templayout.top_cell()
-    os.remove(tempfile)
-    # Transfer the geometry of the imported cell to the one specified
-    pya_cell.name = tempcell.name
-    pya_cell.copy_tree(tempcell)
-    return pya_cell
-
-
-def phidlDevice_to_pyaCell(initial_cell, pya_cell):
-    ''' The phidl version of anyCell_to_pyaCell that gets the correct write method '''
-    from phidl import Device
-    default_write = Device.write_gds
-    # we don't want that extra hierarchy layer: 'topcell'
-    def write_unboundmeth(device_obj, filename):
-        return default_write(device_obj, filename, auto_rename=False)
-    return anyCell_to_pyaCell(initial_cell, pya_cell, write_unboundmeth)
 
 
 class WrappedPCell(pya.PCellDeclarationHelper):
