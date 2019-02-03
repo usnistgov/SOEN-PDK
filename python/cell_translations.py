@@ -81,9 +81,20 @@ def celltype_to_read_function(celltype):
     except ImportError: pass
     else:
         if issubclass(celltype, phidl.Device):
-            # This is not exactly the correct behavior. It ends up with an extra top level of the hierarchy
             def phidlDevice_reader(phidl_device, filename, *args, **kwargs):
-                tempdevice = phidl.geometry.import_gds(filename, *args, **kwargs)
+                #### hacks, because sometimes pya saves an extra topcell called $$$CONTEXT_INFO$$$
+                from gdspy import GdsLibrary
+                gdsii_lib = GdsLibrary()
+                gdsii_lib.read_gds(filename)
+                top_level_cells = gdsii_lib.top_level()
+                if len(top_level_cells) == 1:
+                    cellname = top_level_cells[0].name
+                if len(top_level_cells) == 2:
+                    for tc in top_level_cells:
+                        if tc.name != '$$$CONTEXT_INFO$$$':
+                            cellname = tc.name
+                #### end hacks
+                tempdevice = phidl.geometry.import_gds(filename, *args, cellname=cellname, **kwargs)
                 for e in tempdevice.elements:
                     phidl_device.elements.append(e)
                 phidl_device.name = tempdevice.name
