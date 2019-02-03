@@ -11,7 +11,7 @@
 
 import pya
 import os
-from cell_translations import anyCell_to_pyaCell
+from cell_translations import anyCell_to_anyCell
 
 def cellname_to_kwargs(cellname):
     ''' Converts the naming convention for parameter-based cell naming back into a dict of kwargs '''
@@ -123,7 +123,7 @@ class WrappedPCell(pya.PCellDeclarationHelper):
         args, kwargs = self.params_to_kwargs()
         phidl_Device = self.generating_function(*args, **kwargs)
         # Convert phidl.Device to pya.Cell - just geometry
-        anyCell_to_pyaCell(phidl_Device, self.cell)
+        anyCell_to_anyCell(phidl_Device, self.cell)
         # Transfer other data (ports, metadata, CML files, etc.)
         pass  # TODO
 
