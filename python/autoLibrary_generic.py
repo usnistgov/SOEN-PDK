@@ -1,4 +1,6 @@
-''' All of these things are not specific to this technology.
+''' This module converts pcells of any type into KLayout-style PCells
+
+    All of these things are not specific to this technology.
     Eventually, this module could be part of an independent PDK specification package.
 
     It is a bad idea to have this "python" directory permanently because
@@ -29,6 +31,8 @@ def cellname_to_kwargs(cellname):
 
 
 def pytype_to_PCelltype(arg_type):
+    ''' Maps builtin python types to the corresponding types of the PCellDeclarationHelper class
+    '''
     # this has been tested only with floats so far
     if issubclass(arg_type, int):
         return pya.PCellDeclarationHelper.TypeInt
@@ -46,6 +50,9 @@ def pytype_to_PCelltype(arg_type):
 
 import inspect
 def my_argspec(function):
+    ''' Extracts the arguments and keyword arguments from any callable object.
+        The dictionary of kwargs is returned with values reflecting their default arguments
+    '''
     signature = inspect.signature(function)
     args = list()
     kwargs = dict()
@@ -54,25 +61,70 @@ def my_argspec(function):
     return args, kwargs
 
 
+def phidlDevice_to_pyaCell(initial_cell, pya_cell):
+    ''' Transfers the geometry of some initial_cell into a klayout format.
+        This initial_cell can be any type of layout object, even in a different language.
+        It must provide a way to write its geometry to a layout and have only one top cell.
+    '''
+    # Save the geometry of the initial cell
+    tempfile = os.path.realpath('temp_externalCell_to_pyaCell.gds')
+    initial_cell.write_gds(tempfile, auto_rename=False)
+    # Import the gds into pya.Cell format
+    templayout = pya.Layout()
+    templayout.read(tempfile)
+    tempcell = templayout.top_cell()
+    os.remove(tempfile)
+    # Transfer the geometry of the imported cell to the one specified
+    pya_cell.name = tempcell.name
+    pya_cell.copy_tree(tempcell)
+    return pya_cell
+
+
 class WrappedPCell(pya.PCellDeclarationHelper):
-    ''' I think this is not specific to phidl implementation. It just needs some function.
+    ''' Wraps a non-klayout PCell as a klayout PCell.
+        The pcell is here defined as a function with arguments.
+        When produce_impl is called, the cell geometry is compiled and added to this instance's cell.
+
+        The transfer of external pcell geometry is done through a temporary gds file.
+
+        I think this is not specific to phidl implementation. It just needs some function.
         Oh wait, yes it is (barely) because of write_gds.
     '''
     generating_function = None
 
-    def kwarg_to_param(self, key, default=None):
-        self.param(key, pytype_to_PCelltype(type(default)), key, default=default)
+    def kwargs_to_params(self):
+        ''' Extracts the arguments of the generating_function and registers them as params of this object
+            If it is a keyword argument, the default type is detected and value added as default
+        '''
+        def kwarg_to_param(key, default=None):
+            self.param(key, pytype_to_PCelltype(type(default)), key, default=default)
+        args, kwargs = my_argspec(self.generating_function)
+        for arg in args:
+            kwarg_to_param(arg)
+        for key, default in kwargs.items():
+            kwarg_to_param(key, default)
+
+    def params_to_kwargs(self):
+        ''' Inverse of kwargs_to_params. Converts the parameters of this instance and their chosen values
+            back into arguments that can be sent to the generating_function.
+        '''
+        # todo: handle non-keyword args
+        all_args = list()
+        all_kwargs = dict()
+        for pdecl, pval in zip(self.get_parameters(), self.get_values()):
+            all_kwargs[pdecl.name] = pval
+        return all_args, all_kwargs
 
     def __init__(self, generating_function):
         self.generating_function = generating_function
         super().__init__()
-        args, kwargs = my_argspec(self.generating_function)
-        for arg in args:
-            self.kwarg_to_param(arg)
-        for key, default in kwargs.items():
-            self.kwarg_to_param(key, default)
+        self.kwargs_to_params()
 
     def display_text_impl(self):
+        ''' Produces a string that includes all of the parameters. This means it is unique for identical cells.
+            We assume that the pcells are functional in the sense that identical parameters yield identical geometry.
+            In this way, different pcell instances with the same arguments are correctly identified as the same cell.
+        '''
         text = self.generating_function.__name__ + '_'
         for pdecl, pval in zip(self.get_parameters(), self.get_values()):
             # sanitize _'s and ='s
@@ -82,42 +134,34 @@ class WrappedPCell(pya.PCellDeclarationHelper):
             text += '_{}={}'.format(pdecl.name, pval)
         return text
 
-    def get_params_as_kwargs(self):
-        # todo: handle non-keyword args
-        all_args = list()
-        all_kwargs = dict()
-        for pdecl, pval in zip(self.get_parameters(), self.get_values()):
-            all_kwargs[pdecl.name] = pval
-        return all_args, all_kwargs
-
     def produce_impl(self):
-        tempfile = os.path.realpath('temp.gds')
+        ''' Creates a fixed cell instance based on the previously specified parameters
+        '''
         # Produce the geometry
-        args, kwargs = self.get_params_as_kwargs()
+        args, kwargs = self.params_to_kwargs()
         phidl_Device = self.generating_function(*args, **kwargs)
-        phidl_Device.write_gds(tempfile, auto_rename=False)
-
-        # Load the geometry into a klayout format
-        templayout = pya.Layout()
-        templayout.read(tempfile)
-        tempcell = templayout.top_cell()
-        os.remove(tempfile)
-
-        # Load other data (ports, metadata, CML files, etc.)
+        # Convert phidl.Device to pya.Cell - just geometry
+        phidlDevice_to_pyaCell(phidl_Device, self.cell)
+        # Transfer other data (ports, metadata, CML files, etc.)
         pass  # TODO
-
-        # Import the new cell into this pcell implementation
-        self.cell.name = tempcell.name
-        self.cell.copy_tree(tempcell)
 
 
 class WrappedLibrary(pya.Library):
+    ''' An abstract library consisting of pya PCells that are
+        based on function calls that possibly involve other languages (specified in all_funcs_to_wrap)
+        The names of the PCells will end up being the same as the names of the functions.
+
+        Initializing the library registers it in klayout's repository of libraries.
+
+        To subclass this class, no extra methods are needed.
+        Just override the class attributes.
+    '''
     tech_name = None
     all_funcs_to_wrap = None
     description = None
 
     def __init__(self):
-        if self.tech_name is None:
+        if self.tech_name is None or self.all_funcs_to_wrap is None:
             raise NotImplementedError('WrappedLibrary must be subclassed.')
 
         print("Initializing '%s' Library." % self.tech_name)

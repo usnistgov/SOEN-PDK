@@ -16,8 +16,7 @@
  <dsl-interpreter-name/>
  <text>
 
-''' This file is technology specific to OLMAC.
-'''
+# currently implemented here, to be moved to an independent package
 from autoLibrary_generic import WrappedLibrary
 
 # As of yet, we are not putting pcells in klayout's GSI namespace. This might change.
