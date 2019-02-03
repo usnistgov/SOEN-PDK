@@ -103,6 +103,9 @@ class WrappedPCell(pya.PCellDeclarationHelper):
         tempcell = templayout.top_cell()
         os.remove(tempfile)
 
+        # Load other data (ports, metadata, CML files, etc.)
+        pass  # TODO
+
         # Import the new cell into this pcell implementation
         self.cell.name = tempcell.name
         self.cell.copy_tree(tempcell)
