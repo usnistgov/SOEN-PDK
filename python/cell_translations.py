@@ -81,10 +81,14 @@ def celltype_to_read_function(celltype):
     except ImportError: pass
     else:
         if issubclass(celltype, phidl.Device):
-            raise
-            # write_default = phidl.Device.write_gds
-            # # we don't want that extra hierarchy layer, 'topcell', so give an extra argument to prevent it
-            # return lambda *args, **kwargs: write_default(*args, **kwargs, auto_rename=False)
+            # This is not exactly the correct behavior. It ends up with an extra top level of the hierarchy
+            def phidlDevice_reader(phidl_device, filename, *args, **kwargs):
+                tempdevice = phidl.geometry.import_gds(filename, *args, **kwargs)
+                for e in tempdevice.elements:
+                    phidl_device.elements.append(e)
+                phidl_device.name = tempdevice.name
+                return phidl_device
+            return phidlDevice_reader
 
     try: import gdspy
     except ImportError: pass
