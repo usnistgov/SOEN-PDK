@@ -29,6 +29,21 @@ open docs/_build/html/index.html
 ```
 
 
+## Dependencies
+There are no explicit python dependencies, but there are some needed for full functionality.
+
+To build the pcells
+```
+pip install phidl
+```
+
+To have the pcells appear in the KLayout GUI and the klayout.db standalone
+```
+pip install lygadgets
+lygadgets_link lygadgets
+```
+
+
 ## NIST Developers
 ### Branching structure
 - master [protected]: release code, must work at all times; pulls only from development; every merge commit is a tagged version such as "v0.1.1"
