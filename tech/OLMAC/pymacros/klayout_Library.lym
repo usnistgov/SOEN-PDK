@@ -16,8 +16,7 @@
  <dsl-interpreter-name/>
  <text>
 
-# currently implemented here, to be moved to an independent package
-from autoLibrary_generic import WrappedLibrary
+from lygadgets import WrappedLibrary
 
 # As of yet, we are not putting pcells in klayout's GSI namespace. This might change.
 # For now, just get the files explicitly
