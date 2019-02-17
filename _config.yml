@@ -1,6 +1,6 @@
 # Site settings
-title: "NIST Pages Template"
-description: "Providing a page template for pages.nist.gov hosting groups."
+title: "SOEN-PDK"
+description: "SOEN PDK documentation (prototype)"
 
-baseurl: "/Pages-Template"
+baseurl: "/SOEN-PDK"
 rooturl: ""
