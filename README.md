@@ -3,6 +3,8 @@ NIST Superconducting Optoelectronic Networks (SOEN) Process Design Kits (PDK).
 
 This kit defines the *OLMEC* process, which combines superconducting electronics, such as SNSPDs and three-terminal devices, active optoelectronics, such as LEDs and modulators, and passive optics, such as waveguides and resonators.
 
+**This project in in a preliminary stage. Major updates are planned before first release, and anything (including the project name) is subject to change.**
+
 
 ## Installation
 ```bash
