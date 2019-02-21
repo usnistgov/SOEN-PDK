@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductors &mdash; OLMAC PDK 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="vias" href="VIAS.html" />
+    <link rel="prev" title="Platform Properties" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> OLMAC PDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../layers.html">Layer Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cells/index.html">PCell library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drc/index.html">Design Rule Checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsection.html">Cross Sections</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Platform Properties</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#example">Example</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wiring-1">Wiring 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nw-pad">NW pad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#led-pad">LED pad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nw-resistor">NW resistor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#silicon-rib">Silicon Rib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#silicon-partial">Silicon Partial</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="VIAS.html">vias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WAVEGUIDES.html">waveguides</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">Todo</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OLMAC PDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Platform Properties</a> &raquo;</li>
+        
+      <li>conductors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/src/properties/CONDUCTORS.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="conductors">
+<h1>conductors<a class="headerlink" href="#conductors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wiring-1">
+<h2>Wiring 1<a class="headerlink" href="#wiring-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>type = metal</li>
+<li>layer = m5_wiring</li>
+<li>material = Ti/Au</li>
+<li>thickness = 0.103</li>
+<li>sheet = 0.1</li>
+</ul>
+</div>
+<div class="section" id="nw-pad">
+<h2>NW pad<a class="headerlink" href="#nw-pad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>type = metal</li>
+<li>layer = m1_nwpad</li>
+<li>material = Ti/Au</li>
+<li>thickness = 0.033</li>
+<li>sheet = 0.3</li>
+<li>characterized = TL_02</li>
+</ul>
+</div>
+<div class="section" id="led-pad">
+<h2>LED pad<a class="headerlink" href="#led-pad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>type = metal</li>
+<li>layer = m4_ledpad</li>
+<li>material = Ti/Au</li>
+<li>thickness = 0.033</li>
+<li>sheet = 0.3</li>
+</ul>
+</div>
+<div class="section" id="nw-resistor">
+<h2>NW resistor<a class="headerlink" href="#nw-resistor" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>type = metal</li>
+<li>layer = m3_res</li>
+<li>material = PdAu</li>
+<li>thickness = 0.060</li>
+<li>sheet = 25</li>
+</ul>
+</div>
+<div class="section" id="silicon-rib">
+<h2>Silicon Rib<a class="headerlink" href="#silicon-rib" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>type = semiconductor</li>
+<li>layer = wg_deep</li>
+<li>material = Si</li>
+<li>thickness = 0.220</li>
+<li>sheet = 0.0</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = P+</li>
+<li>layer = dp_p+</li>
+<li>species = B</li>
+<li>concentration = 5e20</li>
+<li>sheet = 0.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = N+</li>
+<li>layer = dp_n+</li>
+<li>species = P</li>
+<li>concentration = 5e20</li>
+<li>sheet = 0.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = P</li>
+<li>layer = dp_p</li>
+<li>species = B</li>
+<li>concentration = 1e17</li>
+<li>sheet = 0.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = N</li>
+<li>layer = dp_n</li>
+<li>species = P</li>
+<li>concentration = 1e17</li>
+<li>sheet = 0.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = E</li>
+<li>layer = dp_e</li>
+<li>species = V</li>
+<li>concentration = 1e17</li>
+<li>sheet = 0.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="silicon-partial">
+<h2>Silicon Partial<a class="headerlink" href="#silicon-partial" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>type = semiconductor</li>
+<li>layer = wg_shallow</li>
+<li>material = Si</li>
+<li>thickness = 0.070</li>
+<li>sheet = 1e3</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = P+</li>
+<li>layer = dp_p+</li>
+<li>species = B</li>
+<li>concentration = 5e20</li>
+<li>sheet = 23</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = N+</li>
+<li>layer = dp_n+</li>
+<li>species = P</li>
+<li>concentration = 5e20</li>
+<li>sheet = 9</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = P</li>
+<li>layer = dp_p</li>
+<li>species = B</li>
+<li>concentration = 1e17</li>
+<li>sheet = 1e3</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = N</li>
+<li>layer = dp_n</li>
+<li>species = P</li>
+<li>concentration = 1e17</li>
+<li>sheet = 1e3</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>doped</dt>
+<dd><ul class="first last">
+<li>name = E</li>
+<li>layer = dp_e</li>
+<li>species = V</li>
+<li>concentration = 1e17</li>
+<li>sheet = 1e3</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VIAS.html" class="btn btn-neutral float-right" title="vias" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Platform Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
