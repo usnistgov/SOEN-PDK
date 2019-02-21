@@ -3,4 +3,4 @@ title: "SOEN-PDK"
 description: "SOEN PDK documentation (prototype)"
 
 baseurl: "/SOEN-PDK"
-rooturl: ""
+rooturl: "docs/tmp"
