@@ -29,7 +29,7 @@ For now, you must build and view it yourself with
 
 ```bash
 make docs
-open docs/_build/html/index.html
+open docs/build/html/index.html
 ```
 
 
