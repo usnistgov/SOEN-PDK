@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -31,21 +38,16 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Layer Definitions" href="layers.html" />
     <link rel="prev" title="NIST SOEN Process Design Kits" href="../index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -175,30 +177,30 @@
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">If you are a Windows/Anaconda user, you must do these commands within an Anaconda 3 prompt with administrator privileges.</p>
+<p class="admonition-title">Warning</p>
+<p>If you are a Windows/Anaconda user, you must do these commands within an Anaconda 3 prompt with administrator privileges.</p>
 </div>
 <p>Restart KLayout. Under the below dropdown, you should see OLMAC. Select it. Then press the “T”.</p>
 <div class="figure align-center" id="id2" style="width: 200px">
 <img alt="The technology button" src="../_images/tech_menu.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">This is where you change technolgies</span></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">This is where you change technolgies</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="recommended-cross-section-engine">
 <span id="xsection-install"></span><h2>Recommended: Cross Section Engine<a class="headerlink" href="#recommended-cross-section-engine" title="Permalink to this headline">¶</a></h2>
 <p>In order to create cross-sections, you need another package that is distributed via the KLayout package manager. The steps are</p>
 <ol class="arabic simple">
-<li>Open KLayout</li>
-<li>Click the menu Tools &gt; Manage Packages</li>
-<li>Double-click “xsection”</li>
-<li>Click “Apply”</li>
+<li><p>Open KLayout</p></li>
+<li><p>Click the menu Tools &gt; Manage Packages</p></li>
+<li><p>Double-click “xsection”</p></li>
+<li><p>Click “Apply”</p></li>
 </ol>
 </div>
 <div class="section" id="recommended-if-you-use-script-based-layout">
 <h2>Recommended: If you use script-based layout<a class="headerlink" href="#recommended-if-you-use-script-based-layout" title="Permalink to this headline">¶</a></h2>
 <p>Script-based layout is vastly superior to hand-based layout, but it carries challenges. The variable and geometry state is opaque during execution, and the relationship between code changes and produced geometry is not obvious. We have released some packages to address these issues</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/atait/klayout-ipc">lyipc</a>: visual geometry debugging at runtime</li>
-<li><a class="reference external" href="https://github.com/atait/lytest">lytest</a>: automated verification of script-to-geometry correctness</li>
+<li><p><a class="reference external" href="https://github.com/atait/klayout-ipc">lyipc</a>: visual geometry debugging at runtime</p></li>
+<li><p><a class="reference external" href="https://github.com/atait/lytest">lytest</a>: automated verification of script-to-geometry correctness</p></li>
 </ul>
 <p>See their READMEs. Both are available via pip, and both are language-independent (phidl, gdspy, pya, klayout.db, nazca). It wouldn’t be too hard to extend them to MatlabGDSPhotonics, KiCad, CNST Toolbox, ZIC, etc. Email me if you use one of these and like the idea of lypackages.</p>
 </div>
@@ -227,7 +229,7 @@
         <a href="layers.html" class="btn btn-neutral float-right" title="Layer Definitions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="NIST SOEN Process Design Kits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="NIST SOEN Process Design Kits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -253,26 +255,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

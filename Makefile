@@ -7,6 +7,7 @@ venv/bin/activate:
 
 clean:
 	rm -rf docs/build
+	rm -rf _site
 
 purge: clean
 	rm -rf venv
@@ -49,6 +50,8 @@ latexpdf: docbuild
 	@echo "Build finished. The PDF files are in $(BUILDDIR)/latex."
 
 docs: html
+	jekyll build
+	open _site/index.html
 
 
 .PHONY: clean purge test html latexpdf docs

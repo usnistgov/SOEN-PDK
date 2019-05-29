@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -31,21 +38,16 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="vias" href="VIAS.html" />
     <link rel="prev" title="Platform Properties" href="index.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -180,108 +182,103 @@
 <div class="section" id="wiring-1">
 <h2>Wiring 1<a class="headerlink" href="#wiring-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>type = metal</li>
-<li>layer = m5_wiring</li>
-<li>material = Ti/Au</li>
-<li>thickness = 0.103</li>
-<li>sheet = 0.1</li>
+<li><p>type = metal</p></li>
+<li><p>layer = m5_wiring</p></li>
+<li><p>material = Ti/Au</p></li>
+<li><p>thickness = 0.103</p></li>
+<li><p>sheet = 0.1</p></li>
 </ul>
 </div>
 <div class="section" id="nw-pad">
 <h2>NW pad<a class="headerlink" href="#nw-pad" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>type = metal</li>
-<li>layer = m1_nwpad</li>
-<li>material = Ti/Au</li>
-<li>thickness = 0.033</li>
-<li>sheet = 0.3</li>
-<li>characterized = TL_02</li>
+<li><p>type = metal</p></li>
+<li><p>layer = m1_nwpad</p></li>
+<li><p>material = Ti/Au</p></li>
+<li><p>thickness = 0.033</p></li>
+<li><p>sheet = 0.3</p></li>
+<li><p>characterized = TL_02</p></li>
 </ul>
 </div>
 <div class="section" id="led-pad">
 <h2>LED pad<a class="headerlink" href="#led-pad" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>type = metal</li>
-<li>layer = m4_ledpad</li>
-<li>material = Ti/Au</li>
-<li>thickness = 0.033</li>
-<li>sheet = 0.3</li>
+<li><p>type = metal</p></li>
+<li><p>layer = m4_ledpad</p></li>
+<li><p>material = Ti/Au</p></li>
+<li><p>thickness = 0.033</p></li>
+<li><p>sheet = 0.3</p></li>
 </ul>
 </div>
 <div class="section" id="nw-resistor">
 <h2>NW resistor<a class="headerlink" href="#nw-resistor" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>type = metal</li>
-<li>layer = m3_res</li>
-<li>material = PdAu</li>
-<li>thickness = 0.060</li>
-<li>sheet = 25</li>
+<li><p>type = metal</p></li>
+<li><p>layer = m3_res</p></li>
+<li><p>material = PdAu</p></li>
+<li><p>thickness = 0.060</p></li>
+<li><p>sheet = 25</p></li>
 </ul>
 </div>
 <div class="section" id="silicon-rib">
 <h2>Silicon Rib<a class="headerlink" href="#silicon-rib" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>type = semiconductor</li>
-<li>layer = wg_deep</li>
-<li>material = Si</li>
-<li>thickness = 0.220</li>
-<li>sheet = 0.0</li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = P+</li>
-<li>layer = dp_p+</li>
-<li>species = B</li>
-<li>concentration = 5e20</li>
-<li>sheet = 0.0</li>
+<li><p>type = semiconductor</p></li>
+<li><p>layer = wg_deep</p></li>
+<li><p>material = Si</p></li>
+<li><p>thickness = 0.220</p></li>
+<li><p>sheet = 0.0</p></li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = P+</p></li>
+<li><p>layer = dp_p+</p></li>
+<li><p>species = B</p></li>
+<li><p>concentration = 5e20</p></li>
+<li><p>sheet = 0.0</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = N+</li>
-<li>layer = dp_n+</li>
-<li>species = P</li>
-<li>concentration = 5e20</li>
-<li>sheet = 0.0</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = N+</p></li>
+<li><p>layer = dp_n+</p></li>
+<li><p>species = P</p></li>
+<li><p>concentration = 5e20</p></li>
+<li><p>sheet = 0.0</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = P</li>
-<li>layer = dp_p</li>
-<li>species = B</li>
-<li>concentration = 1e17</li>
-<li>sheet = 0.0</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = P</p></li>
+<li><p>layer = dp_p</p></li>
+<li><p>species = B</p></li>
+<li><p>concentration = 1e17</p></li>
+<li><p>sheet = 0.0</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = N</li>
-<li>layer = dp_n</li>
-<li>species = P</li>
-<li>concentration = 1e17</li>
-<li>sheet = 0.0</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = N</p></li>
+<li><p>layer = dp_n</p></li>
+<li><p>species = P</p></li>
+<li><p>concentration = 1e17</p></li>
+<li><p>sheet = 0.0</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = E</li>
-<li>layer = dp_e</li>
-<li>species = V</li>
-<li>concentration = 1e17</li>
-<li>sheet = 0.0</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = E</p></li>
+<li><p>layer = dp_e</p></li>
+<li><p>species = V</p></li>
+<li><p>concentration = 1e17</p></li>
+<li><p>sheet = 0.0</p></li>
 </ul>
 </dd>
 </dl>
@@ -291,67 +288,62 @@
 <div class="section" id="silicon-partial">
 <h2>Silicon Partial<a class="headerlink" href="#silicon-partial" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>type = semiconductor</li>
-<li>layer = wg_shallow</li>
-<li>material = Si</li>
-<li>thickness = 0.070</li>
-<li>sheet = 1e3</li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = P+</li>
-<li>layer = dp_p+</li>
-<li>species = B</li>
-<li>concentration = 5e20</li>
-<li>sheet = 23</li>
+<li><p>type = semiconductor</p></li>
+<li><p>layer = wg_shallow</p></li>
+<li><p>material = Si</p></li>
+<li><p>thickness = 0.070</p></li>
+<li><p>sheet = 1e3</p></li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = P+</p></li>
+<li><p>layer = dp_p+</p></li>
+<li><p>species = B</p></li>
+<li><p>concentration = 5e20</p></li>
+<li><p>sheet = 23</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = N+</li>
-<li>layer = dp_n+</li>
-<li>species = P</li>
-<li>concentration = 5e20</li>
-<li>sheet = 9</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = N+</p></li>
+<li><p>layer = dp_n+</p></li>
+<li><p>species = P</p></li>
+<li><p>concentration = 5e20</p></li>
+<li><p>sheet = 9</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = P</li>
-<li>layer = dp_p</li>
-<li>species = B</li>
-<li>concentration = 1e17</li>
-<li>sheet = 1e3</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = P</p></li>
+<li><p>layer = dp_p</p></li>
+<li><p>species = B</p></li>
+<li><p>concentration = 1e17</p></li>
+<li><p>sheet = 1e3</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = N</li>
-<li>layer = dp_n</li>
-<li>species = P</li>
-<li>concentration = 1e17</li>
-<li>sheet = 1e3</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = N</p></li>
+<li><p>layer = dp_n</p></li>
+<li><p>species = P</p></li>
+<li><p>concentration = 1e17</p></li>
+<li><p>sheet = 1e3</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>doped</dt>
-<dd><ul class="first last">
-<li>name = E</li>
-<li>layer = dp_e</li>
-<li>species = V</li>
-<li>concentration = 1e17</li>
-<li>sheet = 1e3</li>
+<li><dl class="simple">
+<dt>doped</dt><dd><ul>
+<li><p>name = E</p></li>
+<li><p>layer = dp_e</p></li>
+<li><p>species = V</p></li>
+<li><p>concentration = 1e17</p></li>
+<li><p>sheet = 1e3</p></li>
 </ul>
 </dd>
 </dl>
@@ -371,7 +363,7 @@
         <a href="VIAS.html" class="btn btn-neutral float-right" title="vias" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Platform Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Platform Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -397,26 +389,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

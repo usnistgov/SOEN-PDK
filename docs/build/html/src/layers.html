@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -31,21 +38,16 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PCell library" href="cells/index.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -160,58 +162,58 @@
   <div class="section" id="layer-definitions">
 <span id="layers"></span><h1>Layer Definitions<a class="headerlink" href="#layer-definitions" title="Permalink to this headline">¶</a></h1>
 <p>These are all the available layers listed as</p>
-<dl class="docutils">
-<dt>token <span class="classifier-delimiter">:</span> <span class="classifier">layer/datatype</span></dt>
-<dd>description</dd>
+<dl class="simple">
+<dt>token<span class="classifier">layer/datatype</span></dt><dd><p>description</p>
+</dd>
 </dl>
 <p>—</p>
-<dl class="docutils">
-<dt>dp_p <span class="classifier-delimiter">:</span> <span class="classifier">1/0</span></dt>
-<dd>p+ doping</dd>
-<dt>dp_n <span class="classifier-delimiter">:</span> <span class="classifier">2/0</span></dt>
-<dd>n+ doping</dd>
-<dt>dp_p <span class="classifier-delimiter">:</span> <span class="classifier">3/0</span></dt>
-<dd>p doping</dd>
-<dt>dp_n <span class="classifier-delimiter">:</span> <span class="classifier">4/0</span></dt>
-<dd>n doping</dd>
-<dt>dp_e <span class="classifier-delimiter">:</span> <span class="classifier">5/0</span></dt>
-<dd>emitter doping</dd>
-<dt>m1_nwpad <span class="classifier-delimiter">:</span> <span class="classifier">11/0</span></dt>
-<dd>nanowire wiring and pads</dd>
-<dt>m1_nwgnd <span class="classifier-delimiter">:</span> <span class="classifier">11/99</span></dt>
-<dd>nanowire wiring and pads</dd>
-<dt>m2_nw <span class="classifier-delimiter">:</span> <span class="classifier">12/0</span></dt>
-<dd>superconductor (wsi)</dd>
-<dt>m4_ledpad <span class="classifier-delimiter">:</span> <span class="classifier">14/0</span></dt>
-<dd>LED pads</dd>
-<dt>m4_ledgnd <span class="classifier-delimiter">:</span> <span class="classifier">14/99</span></dt>
-<dd>LED ground</dd>
-<dt>m3_res <span class="classifier-delimiter">:</span> <span class="classifier">15/0</span></dt>
-<dd>hTron AuPd resistors</dd>
-<dt>m5_wiring <span class="classifier-delimiter">:</span> <span class="classifier">16/0</span></dt>
-<dd>wiring</dd>
-<dt>m5_gnd <span class="classifier-delimiter">:</span> <span class="classifier">16/99</span></dt>
-<dd>Ground plane</dd>
-<dt>wg_shallow <span class="classifier-delimiter">:</span> <span class="classifier">21/0</span></dt>
-<dd>shallow Si etch</dd>
-<dt>wg_deep <span class="classifier-delimiter">:</span> <span class="classifier">22/0</span></dt>
-<dd>Si etch photolith</dd>
-<dt>v3 <span class="classifier-delimiter">:</span> <span class="classifier">31/0</span></dt>
-<dd>via opening between m3-m2</dd>
-<dt>v5 <span class="classifier-delimiter">:</span> <span class="classifier">32/0</span></dt>
-<dd>via opening between m5-m4</dd>
-<dt>su8_thin <span class="classifier-delimiter">:</span> <span class="classifier">52/0</span></dt>
-<dd>su8 short pedestals</dd>
-<dt>su8 <span class="classifier-delimiter">:</span> <span class="classifier">51/0</span></dt>
-<dd>su8 polymer fences</dd>
-<dt>labels <span class="classifier-delimiter">:</span> <span class="classifier">255/0</span></dt>
-<dd>Labels</dd>
-<dt>DRC_exclude <span class="classifier-delimiter">:</span> <span class="classifier">91/0</span></dt>
-<dd>DRC ignores this area</dd>
-<dt>GP_KO <span class="classifier-delimiter">:</span> <span class="classifier">92/0</span></dt>
-<dd>Ground plane will keep out</dd>
-<dt>FLOORPLAN <span class="classifier-delimiter">:</span> <span class="classifier">99/0</span></dt>
-<dd>outer bounding box</dd>
+<dl class="simple">
+<dt>dp_p<span class="classifier">1/0</span></dt><dd><p>p+ doping</p>
+</dd>
+<dt>dp_n<span class="classifier">2/0</span></dt><dd><p>n+ doping</p>
+</dd>
+<dt>dp_p<span class="classifier">3/0</span></dt><dd><p>p doping</p>
+</dd>
+<dt>dp_n<span class="classifier">4/0</span></dt><dd><p>n doping</p>
+</dd>
+<dt>dp_e<span class="classifier">5/0</span></dt><dd><p>emitter doping</p>
+</dd>
+<dt>m1_nwpad<span class="classifier">11/0</span></dt><dd><p>nanowire wiring and pads</p>
+</dd>
+<dt>m1_nwgnd<span class="classifier">11/99</span></dt><dd><p>nanowire wiring and pads</p>
+</dd>
+<dt>m2_nw<span class="classifier">12/0</span></dt><dd><p>superconductor (wsi)</p>
+</dd>
+<dt>m4_ledpad<span class="classifier">14/0</span></dt><dd><p>LED pads</p>
+</dd>
+<dt>m4_ledgnd<span class="classifier">14/99</span></dt><dd><p>LED ground</p>
+</dd>
+<dt>m3_res<span class="classifier">15/0</span></dt><dd><p>hTron AuPd resistors</p>
+</dd>
+<dt>m5_wiring<span class="classifier">16/0</span></dt><dd><p>wiring</p>
+</dd>
+<dt>m5_gnd<span class="classifier">16/99</span></dt><dd><p>Ground plane</p>
+</dd>
+<dt>wg_shallow<span class="classifier">21/0</span></dt><dd><p>shallow Si etch</p>
+</dd>
+<dt>wg_deep<span class="classifier">22/0</span></dt><dd><p>Si etch photolith</p>
+</dd>
+<dt>v3<span class="classifier">31/0</span></dt><dd><p>via opening between m3-m2</p>
+</dd>
+<dt>v5<span class="classifier">32/0</span></dt><dd><p>via opening between m5-m4</p>
+</dd>
+<dt>su8_thin<span class="classifier">52/0</span></dt><dd><p>su8 short pedestals</p>
+</dd>
+<dt>su8<span class="classifier">51/0</span></dt><dd><p>su8 polymer fences</p>
+</dd>
+<dt>labels<span class="classifier">255/0</span></dt><dd><p>Labels</p>
+</dd>
+<dt>DRC_exclude<span class="classifier">91/0</span></dt><dd><p>DRC ignores this area</p>
+</dd>
+<dt>GP_KO<span class="classifier">92/0</span></dt><dd><p>Ground plane will keep out</p>
+</dd>
+<dt>FLOORPLAN<span class="classifier">99/0</span></dt><dd><p>outer bounding box</p>
+</dd>
 </dl>
 </div>
 
@@ -226,7 +228,7 @@
         <a href="cells/index.html" class="btn btn-neutral float-right" title="PCell library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -252,26 +254,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
