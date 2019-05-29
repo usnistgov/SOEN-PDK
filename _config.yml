@@ -4,3 +4,8 @@ description: "SOEN PDK documentation (prototype)"
 
 baseurl: "/SOEN-PDK"
 rooturl: ""
+
+source              : docs/src
+destination         : docs/build/html
+layouts_dir         : docs/_layouts
+includes_dir        : docs/_includes
