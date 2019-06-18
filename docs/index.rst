@@ -1,4 +1,4 @@
-NIST SOEN Process Design Kits
+NIST SOEN Process Design Kits type2
 =================================================
 
 This technology package, a.k.a process design kit (PDK), defines the NIST superconducting optolectronics process: **OLMAC**. It is in the `klayout <https://www.klayout.de>`_ format of technology definition.
