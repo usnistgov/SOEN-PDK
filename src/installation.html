@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Installation &#8212; OLMAC PDK 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Layer Definitions" href="layers.html" />
+    <link rel="prev" title="NIST SOEN Process Design Kits type2" href="../index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="layers.html" title="Layer Definitions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="NIST SOEN Process Design Kits type2"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>To get this PDK itself:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">usnistgov</span><span class="o">/</span><span class="n">SOEN</span><span class="o">-</span><span class="n">PDK</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>If you do not have KLayout yet, <a class="reference external" href="https://www.klayout.de/build.html">download klayout here</a> and follow its installation instructions.</p>
+<p>To use them together, you must create a link:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">lygadgets</span>
+<span class="n">lygadgets_link</span> <span class="n">SOEN</span><span class="o">-</span><span class="n">PDK</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are a Windows/Anaconda user, you must do these commands within an Anaconda 3 prompt with administrator privileges.</p>
+</div>
+<p>Restart KLayout. Under the below dropdown, you should see OLMAC. Select it. Then press the “T”.</p>
+<div class="figure align-center" id="id2" style="width: 200px">
+<img alt="The technology button" src="../_images/tech_menu.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">This is where you change technolgies</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="recommended-cross-section-engine">
+<span id="xsection-install"></span><h2>Recommended: Cross Section Engine<a class="headerlink" href="#recommended-cross-section-engine" title="Permalink to this headline">¶</a></h2>
+<p>In order to create cross-sections, you need another package that is distributed via the KLayout package manager. The steps are</p>
+<ol class="arabic simple">
+<li><p>Open KLayout</p></li>
+<li><p>Click the menu Tools &gt; Manage Packages</p></li>
+<li><p>Double-click “xsection”</p></li>
+<li><p>Click “Apply”</p></li>
+</ol>
+</div>
+<div class="section" id="recommended-if-you-use-script-based-layout">
+<h2>Recommended: If you use script-based layout<a class="headerlink" href="#recommended-if-you-use-script-based-layout" title="Permalink to this headline">¶</a></h2>
+<p>Script-based layout is vastly superior to hand-based layout, but it carries challenges. The variable and geometry state is opaque during execution, and the relationship between code changes and produced geometry is not obvious. We have released some packages to address these issues</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/atait/klayout-ipc">lyipc</a>: visual geometry debugging at runtime</p></li>
+<li><p><a class="reference external" href="https://github.com/atait/lytest">lytest</a>: automated verification of script-to-geometry correctness</p></li>
+</ul>
+<p>See their READMEs. Both are available via pip, and both are language-independent (phidl, gdspy, pya, klayout.db, nazca). It wouldn’t be too hard to extend them to MatlabGDSPhotonics, KiCad, CNST Toolbox, ZIC, etc. Email me if you use one of these and like the idea of lypackages.</p>
+</div>
+<div class="section" id="building-this-documentation">
+<h2>Building this documentation<a class="headerlink" href="#building-this-documentation" title="Permalink to this headline">¶</a></h2>
+<p>NIST developers, please help write this documentation. To build the docs, <cite>cd</cite> into the SOEN-PDK directory and call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">docs</span>
+</pre></div>
+</div>
+<p>First time, it will spew a lot of text at you. Open your local version of them with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span> <span class="n">docs</span><span class="o">/</span><span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>Upon subsequent builds, make sure to refresh the pages, not just backspace in Safari.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#recommended-cross-section-engine">Recommended: Cross Section Engine</a></li>
+<li><a class="reference internal" href="#recommended-if-you-use-script-based-layout">Recommended: If you use script-based layout</a></li>
+<li><a class="reference internal" href="#building-this-documentation">Building this documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">NIST SOEN Process Design Kits type2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="layers.html"
+                        title="next chapter">Layer Definitions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/src/installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="layers.html" title="Layer Definitions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="NIST SOEN Process Design Kits type2"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>

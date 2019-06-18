@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cross Sections &#8212; OLMAC PDK 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Platform Properties" href="properties/index.html" />
+    <link rel="prev" title="Design Rule Checks" href="drc/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="properties/index.html" title="Platform Properties"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="drc/index.html" title="Design Rule Checks"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cross-sections">
+<span id="xsection"></span><h1>Cross Sections<a class="headerlink" href="#cross-sections" title="Permalink to this headline">¶</a></h1>
+<p>Cross sections are nice tools for examining structures in three dimensions.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Open KLayout</p></li>
+<li><p>Click the menu Tools &gt; Manage Packages</p></li>
+<li><p>Double-click “xsection”</p></li>
+<li><p>Click “Apply”</p></li>
+</ol>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The xsection script is based on a ruler. Start by drawing a ruler by pressing “R”.</p>
+<div class="figure align-center" id="id1" style="width: 300px">
+<img alt="A ruler" src="../_images/basic_ruler.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">This is a ruler.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Run the xsection script by going to Tools &gt; Xsection Scripts &gt; Xsection: Active Technology (Cmd-X). Xsection needs exactly one ruler present. You can clear all rulers with Cmd-K.</p>
+</div>
+<div class="section" id="try-it-out">
+<h2>Try it out<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
+<p><cite>OLMAC/xsect/example.py</cite> produces a dummy layout (<cite>example.gds</cite>) designed to illustrate all aspects of the OLMAC layer stack. Try drawing rulers there. A ruler across the whole thing and its corresponding cross-section look like this.</p>
+<div class="figure align-center" id="id2" style="width: 700px">
+<img alt="examplegds" src="../_images/xs_source.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Layout example contained in this PDK, designed to show XSection.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id3" style="width: 700px">
+<img alt="examplexs" src="../_images/xs_result.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Corresponding cross-section.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Cross Sections</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#try-it-out">Try it out</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="drc/index.html"
+                        title="previous chapter">Design Rule Checks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="properties/index.html"
+                        title="next chapter">Platform Properties</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/src/xsection.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="properties/index.html" title="Platform Properties"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="drc/index.html" title="Design Rule Checks"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>

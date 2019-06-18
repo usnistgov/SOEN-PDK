@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>vias &#8212; OLMAC PDK 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="waveguides" href="WAVEGUIDES.html" />
+    <link rel="prev" title="conductors" href="CONDUCTORS.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="WAVEGUIDES.html" title="waveguides"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CONDUCTORS.html" title="conductors"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Platform Properties</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vias">
+<h1>vias<a class="headerlink" href="#vias" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nw-pad-to-wiring">
+<h2>NW Pad to Wiring<a class="headerlink" href="#nw-pad-to-wiring" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>resistance = 0.0</p></li>
+<li><p>resistivity = 0.0</p></li>
+<li><p>layer = v3</p></li>
+<li><p>min_size = 0.5</p></li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = m1_nwpad</p></li>
+<li><p>inclusion = 2.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = m5_wiring</p></li>
+<li><p>inclusion = 2.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="led-pad-to-wiring">
+<h2>LED Pad to Wiring<a class="headerlink" href="#led-pad-to-wiring" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>resistance = 0.0</p></li>
+<li><p>resistivity = 0.0</p></li>
+<li><p>layer = v3</p></li>
+<li><p>min_size = 0.5</p></li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = m4_ledpad</p></li>
+<li><p>inclusion = 2.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = m5_wiring</p></li>
+<li><p>inclusion = 2.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="led-pad-to-p">
+<h2>LED Pad to P+<a class="headerlink" href="#led-pad-to-p" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>resistance = 140</p></li>
+<li><p>layer = v3</p></li>
+<li><p>min_size = 0.5</p></li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = m4_ledpad</p></li>
+<li><p>inclusion = 0.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = wg_shallow</p></li>
+<li><p>inclusion = 2.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = dp_p+</p></li>
+<li><p>inclusion = 0.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="led-pad-to-n">
+<h2>LED Pad to N+<a class="headerlink" href="#led-pad-to-n" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>resistance = 90</p></li>
+<li><p>layer = v3</p></li>
+<li><p>min_size = 0.5</p></li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = m4_ledpad</p></li>
+<li><p>inclusion = 0.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = wg_shallow</p></li>
+<li><p>inclusion = 2.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>component</dt><dd><ul>
+<li><p>layer = dp_n+</p></li>
+<li><p>inclusion = 0.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="bond-pad">
+<h2>Bond Pad<a class="headerlink" href="#bond-pad" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>resistance = 0.0</p></li>
+<li><p>layer = v5</p></li>
+<li><p>min_size = 40.0</p></li>
+<li><p>component</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>layer = m5_wiring</p></li>
+<li><p>inclusion = 5.0</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="probe-pad">
+<h2>Probe Pad<a class="headerlink" href="#probe-pad" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>resistance = 0.0</p></li>
+<li><p>layer = v5</p></li>
+<li><p>min_size = 100.0</p></li>
+<li><p>component</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>layer = m5_wiring</p></li>
+<li><p>inclusion = 5.0</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">vias</a><ul>
+<li><a class="reference internal" href="#nw-pad-to-wiring">NW Pad to Wiring</a></li>
+<li><a class="reference internal" href="#led-pad-to-wiring">LED Pad to Wiring</a></li>
+<li><a class="reference internal" href="#led-pad-to-p">LED Pad to P+</a></li>
+<li><a class="reference internal" href="#led-pad-to-n">LED Pad to N+</a></li>
+<li><a class="reference internal" href="#bond-pad">Bond Pad</a></li>
+<li><a class="reference internal" href="#probe-pad">Probe Pad</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CONDUCTORS.html"
+                        title="previous chapter">conductors</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="WAVEGUIDES.html"
+                        title="next chapter">waveguides</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/src/properties/VIAS.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="WAVEGUIDES.html" title="waveguides"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CONDUCTORS.html" title="conductors"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Platform Properties</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>
