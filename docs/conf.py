@@ -41,16 +41,6 @@ author = 'Sonia Buckley, Adam McCaughan, Jeff Chiles, Alex Tait, Saeed Khan, Jef
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-
-# with open("../version.py") as f:
-#     code = compile(f.read(), "version.py", 'exec')
-#     version_dict = {}
-#     exec(code, {}, version_dict)
-#     # The short X.Y version.
-#     version = version_dict['version']
-#     # The full version, including alpha/beta/rc tags.
-#     release = version_dict['release']
-
 import xmltodict
 with open("../grain.xml") as fx:
     grain_dict = xmltodict.parse(fx.read())
@@ -72,9 +62,11 @@ numfig = True
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.
-import sphinx_rtd_theme
-html_theme = 'sphinx_rtd_theme'
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+# import sphinx_rtd_theme
+html_theme = 'nature'
+# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+# import pdb; pdb.set_trace()
+# html_theme_path = ['']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -115,9 +107,8 @@ latex_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'python': ('https://docs.python.org/', None)}
 
-# Do this conversion first
+# Do the layers and properties conversion first
 import sys, os
-# import pdb; pdb.set_trace()
 sys.path.append(os.path.realpath(os.path.dirname(__file__)))
 from properties2rst import convert_all
 convert_all()

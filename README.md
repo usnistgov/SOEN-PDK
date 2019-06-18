@@ -26,7 +26,7 @@ On the klayout menu bar, there is a "T" in a circle which has a down triangle. I
 ## Documentation
 Main [documentation](https://pages.nist.gov/SOEN-PDK) on NIST pages.
 
-Developers who are modifying the docs can rebuild them with `make docs` or `make html`. The output is in `_site/index.html`.
+Developers who are modifying the docs can rebuild them with `make docs`. The output is in `_site/index.html`.
 
 
 ## Feature Summary
