@@ -1,3 +1,6 @@
+# Searches through the technology properties directory
+# Converts all properties and values to Sphinx-compatible RST
+# Puts that text in the correct place in the documentation
 import xmltodict
 import os
 import sys

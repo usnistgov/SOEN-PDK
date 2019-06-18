@@ -16,6 +16,7 @@
  <dsl-interpreter-name/>
  <text>
 
+# check if lygadgets exists
 try:
     import lygadgets
 except ImportError:
@@ -26,6 +27,7 @@ except ImportError:
                          'pip install lygadgets\nlygadgets_link lygadgets'),
                         pya.MessageBox.Ok)
 else:
+    # check if lygadgets has the right version
     v_list = lygadgets.__version__.split('.')
     if int(v_list[1]) < 1 or int(v_list[2]) < 18:
         pya.MessageBox.info('lygadgets message',
@@ -35,12 +37,12 @@ else:
                          'pip install --upgrade lygadgets'),
                         pya.MessageBox.Ok)
     else:
+        # add a PCell library
 
         # As of yet, we are not putting pcells in klayout's GSI namespace. This might change.
-        # For now, just get the files explicitly
+        # For now, just get the files explicitly and make a WrappedLibrary.
         import sys, os
         sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
-
 
         from olmac_pcells import wg_to_snspd, htron
         class OLMAC_Library(lygadgets.WrappedLibrary):

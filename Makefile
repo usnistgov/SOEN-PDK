@@ -6,7 +6,8 @@ venv/bin/activate:
 	touch venv/bin/activate
 
 clean:
-	rm -rf docs/_build
+	rm -rf docs/build
+	rm -rf _site
 
 purge: clean
 	rm -rf venv
@@ -24,7 +25,7 @@ test: testbuild
 
 # Documentation
 SPHINXOPTS = -j4
-BUILDDIR = docs/_build
+BUILDDIR = docs/build
 docbuild: venv/build_info/docreqs
 venv/build_info/docreqs: venv requirements-docs.txt
 	source venv/bin/activate && pip install -r requirements-docs.txt
@@ -49,6 +50,8 @@ latexpdf: docbuild
 	@echo "Build finished. The PDF files are in $(BUILDDIR)/latex."
 
 docs: html
+	jekyll build
+	open _site/index.html
 
 
 .PHONY: clean purge test html latexpdf docs

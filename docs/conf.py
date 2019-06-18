@@ -54,13 +54,13 @@ author = 'Sonia Buckley, Adam McCaughan, Jeff Chiles, Alex Tait, Saeed Khan, Jef
 import xmltodict
 with open("../grain.xml") as fx:
     grain_dict = xmltodict.parse(fx.read())
-version = grain_dict['salt-grain']['version']
+version = grain_dict['salt-mine']['salt-grain']['version']
 release = version
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'venv', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['build', 'venv', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
