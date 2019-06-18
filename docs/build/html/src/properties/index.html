@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Platform Properties &#8212; OLMAC PDK 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="conductors" href="CONDUCTORS.html" />
+    <link rel="prev" title="Cross Sections" href="../xsection.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="CONDUCTORS.html" title="conductors"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../xsection.html" title="Cross Sections"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="platform-properties">
+<span id="properties"></span><h1>Platform Properties<a class="headerlink" href="#platform-properties" title="Permalink to this headline">¶</a></h1>
+<p>Property values describe the behavior to the platform. These properties can be populated with guesses or characterization data (see comments in the files themselves). They can be used to analyze expected nonideality or to produce designs that minimize nonideality.</p>
+<p>The rationale for this approach is that XML files can be loaded by anything, such as layout code, analysis code, etc. In this way, they enable calculations of</p>
+<ol class="arabic simple">
+<li><p>Waveguide routing loss</p></li>
+<li><p>Metal routing resistance, including vias</p></li>
+<li><p>Automatic resistor geometry</p></li>
+<li><p>Automatic widening of long, straight waveguides</p></li>
+</ol>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>A straight waveguide might have loss <cite>L_rib</cite> if it’s a rib WG or loss <cite>L_ridge</cite> if it’s a ridge WG. It must start and end as a rib. Let’s say a WG transition has loss <cite>L_trans</cite>. Then, if:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L_ridge</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">L_trans</span> <span class="o">&lt;</span> <span class="n">L_rib</span>
+</pre></div>
+</div>
+<p>then the waveguide will automatically widen in the middle section. Later, if the WG loss improves, it is entered it into WAVEGUIDES.xml &gt; Strip &gt; loss. As a result, the whole layout will update accordingly.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CONDUCTORS.html">conductors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CONDUCTORS.html#wiring-1">Wiring 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONDUCTORS.html#nw-pad">NW pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONDUCTORS.html#led-pad">LED pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONDUCTORS.html#nw-resistor">NW resistor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONDUCTORS.html#silicon-rib">Silicon Rib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONDUCTORS.html#silicon-partial">Silicon Partial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VIAS.html">vias</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIAS.html#nw-pad-to-wiring">NW Pad to Wiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIAS.html#led-pad-to-wiring">LED Pad to Wiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIAS.html#led-pad-to-p">LED Pad to P+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIAS.html#led-pad-to-n">LED Pad to N+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIAS.html#bond-pad">Bond Pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIAS.html#probe-pad">Probe Pad</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WAVEGUIDES.html">waveguides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WAVEGUIDES.html#strip">Strip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WAVEGUIDES.html#strip1550">Strip1550</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WAVEGUIDES.html#long-haul">Long haul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WAVEGUIDES.html#ridge">Ridge</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Platform Properties</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../xsection.html"
+                        title="previous chapter">Cross Sections</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CONDUCTORS.html"
+                        title="next chapter">conductors</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/src/properties/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="CONDUCTORS.html" title="conductors"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../xsection.html" title="Cross Sections"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>
