@@ -50,8 +50,8 @@ latexpdf: docbuild
 	@echo "Build finished. The PDF files are in $(BUILDDIR)/latex."
 
 docs: html
-	jekyll build
-	open _site/index.html
 
+docdeploy: html
+	git subtree push --prefix $(BUILDDIR)/html origin nist-pages
 
 .PHONY: clean purge test html latexpdf docs

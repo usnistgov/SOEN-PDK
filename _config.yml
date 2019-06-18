@@ -1,9 +1,0 @@
-# Settings for Jekyll generation of NIST pages site
-title: "SOEN-PDK"
-description: "SOEN PDK documentation (prototype)"
-
-baseurl: "/SOEN-PDK"
-rooturl: ""
-
-source: docs/build/html
-include: [_images, _static]
