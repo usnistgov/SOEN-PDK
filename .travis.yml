@@ -7,4 +7,4 @@ cache: pip
 install:
   - pip install -r requirements-test.txt
 script:
-  - DOCKER=1 make tests
+  - DOCKER=1 make test
