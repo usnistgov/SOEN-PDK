@@ -13,7 +13,7 @@ run_layouts
 # Documentation
 _site
 .sass-cache
-# docs/build
+docs/build
 
 # virtual environments for testing and building documentation
 venv
