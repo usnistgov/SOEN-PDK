@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<salt-mine>
 <salt-grain>
  <name>soen_pdk</name>
  <version>0.0.2</version>
@@ -14,4 +13,3 @@
  <license>MIT</license>
  <depends/>
 </salt-grain>
-</salt-mine>
