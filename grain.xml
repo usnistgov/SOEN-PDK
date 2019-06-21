@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <salt-grain>
  <name>soen_pdk</name>
- <version>0.0.2</version>
+ <version>0.0.3</version>
  <api-version>0.1</api-version>
  <title>NIST SOEN PDK</title>
  <doc>A Process Design Kit for NIST cryogenic photonics process</doc>
@@ -10,6 +10,6 @@
  <author>Alex Tait, Adam McCaughan, Sonia Buckley, Jeff Chiles, Jeff Shainline, Rich Mirin, Sae Woo Nam</author>
  <author-contact>alexander.tait@nist.gov</author-contact>
  <!-- <icon></icon> -->
- <license>MIT</license>
+ <license>NIST</license>
  <depends/>
 </salt-grain>
