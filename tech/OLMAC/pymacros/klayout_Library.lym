@@ -28,14 +28,10 @@ except ImportError:
                         pya.MessageBox.Ok)
 else:
     # check if lygadgets has the right version
-    v_list = lygadgets.__version__.split('.')
-    if int(v_list[1]) < 1 or int(v_list[2]) < 18:
-        pya.MessageBox.info('lygadgets message',
-                        ('lygadgets is out of date. So OLMAC pcells will not be available.\n' +
-                         'Have v{}, need >=0.1.18\n'.format(lygadgets.__version__) +
-                         'To use these, go into terminal/command line anywhere and type\n\n' +
-                         'pip install --upgrade lygadgets'),
-                        pya.MessageBox.Ok)
+    try:
+        lygadgets.WrappedLibrary
+    except AttributeError:
+        pass
     else:
         # add a PCell library
 
