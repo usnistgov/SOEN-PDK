@@ -52,6 +52,7 @@ latexpdf: docbuild
 docs: html
 
 docdeploy: html
+	# When NIST pages gets fixes, I should be able to delete my local nist-pages branch
 	git subtree push --prefix $(BUILDDIR)/html origin nist-pages
 
 .PHONY: clean purge test html latexpdf docs

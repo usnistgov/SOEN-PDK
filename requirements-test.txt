@@ -1,3 +1,4 @@
 phidl
+scipy
 lytest
 lymask
