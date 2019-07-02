@@ -40,7 +40,7 @@ rib = si_wg.not(si_partial)
 etch_pedestal = rib.inverted
 etch_through = si_wg.inverted
 # waveguide, assume non vertical sidewall, with mid-point being the desired width; bias = sin(10)*220.
-etch_angle = 5
+etch_angle = 0
 mask(etch_pedestal).etch(150.nm, :taper => etch_angle, :bias => 0, :into => x_si)
 mask(etch_through).etch(70.nm, :taper => etch_angle, :bias => -0, :into => x_si)
 x_si1 = x_si.dup
@@ -94,7 +94,7 @@ x_tiau_led = mask(m4_ledpad).grow(90.nm)
 
 ######## Step ...: Nb wiring 1 ########
 t_wire1 = 100.nm
-isotropy = 0.9 # 1.0 is isotropic growth, 0.0 is perfectly anisotropic
+isotropy = 0.8 # 1.0 is isotropic growth, 0.0 is perfectly anisotropic
 x_nb1 = mask(m5_wiring).grow(t_wire1, t_wire1 * isotropy, :mode => :round)
 ######## Step ...: Nb wiring 2 ########
 

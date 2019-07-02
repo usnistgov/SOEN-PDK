@@ -28,14 +28,16 @@ from phidl import Device, geometry as pg
 
 def do_something_interesting():
     x_section = Device()
-    def insert_wx(lname, width, x):
-        shape = x_section << pg.rectangle((width, 2), layer=lys[lname])
+    def insert_wx(layname, width, x):
+        # insert a rectangle with a given width and center x. Height doesn't matter.
+        shape = x_section << pg.rectangle((width, 2), layer=lys[layname])
         shape.x = x
         shape.y = 50
         return shape
 
-    def insert(lname, xmin, xmax):
-        shape = x_section << pg.rectangle((xmax-xmin, 2), layer=lys[lname])
+    def insert(layname, xmin, xmax):
+        # insert a rectangle spanning these x coordinates
+        shape = x_section << pg.rectangle((xmax-xmin, 2), layer=lys[layname])
         shape.xmin = xmin
         shape.y = 50
         return shape
@@ -53,11 +55,10 @@ def do_something_interesting():
     insert_wx('dp_p+', .3, -ppdopant_x)
     for side in [-1, 1]:
         insert_wx('m4_ledpad', .28, side*ppdopant_x)
-        insert_wx('v5', .25, side*ppdopant_x)
-    insert_wx('m5_wiring', .35, -ppdopant_x)
-    insert_wx('v3', .3, -ppdopant_x)
-    insert_wx('m5_wiring', .65, ppdopant_x+.4)
-    insert_wx('v3', .4, ppdopant_x+.4)
+        insert_wx('v3', .25, side*ppdopant_x)
+        insert_wx('m5_wiring', .3, side*ppdopant_x)
+        insert_wx('m5_wiring', .6, side*(ppdopant_x+.3))
+        insert_wx('v5', side*.4, side*(ppdopant_x+.4))
 
     # WG
     wg = insert_wx('wg_deep', .2, 2)
