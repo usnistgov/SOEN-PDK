@@ -45,7 +45,7 @@ author = 'Sonia Buckley, Adam McCaughan, Jeff Chiles, Alex Tait, Saeed Khan, Jef
 import xmltodict
 with open("../grain.xml") as fx:
     grain_dict = xmltodict.parse(fx.read())
-version = grain_dict['salt-mine']['salt-grain']['version']
+version = grain_dict['salt-grain']['version']
 release = version
 
 # List of patterns, relative to source directory, that match files and

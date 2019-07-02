@@ -69,21 +69,11 @@ def do_something_interesting():
     wire = insert('m5_wiring', pad.x, pad.x+1)
     insert_wx('v5', .3, wire.xmax - .2)
 
-    # resistor
-    res = insert_wx('m3_res', 2, wire.xmax+1.5)
-    via1 = insert('v5', res.xmin+.1, res.xmin+.5)
-    wire1 = insert_wx('m5_wiring', .5, via1.x)
-    insert_wx('v3', .4, wire1.x)
-    via2 = insert('v5', res.xmax-.5, res.xmax-.1)
-    wire2 = insert_wx('m5_wiring', .5, via2.x)
-    insert_wx('v3', .4, wire2.x)
-    insert('wg_deep', wire1.xmin-.1, wire2.xmax+.1)
-
     # htron
     snspd = x_section << pg.snspd(wire_width = 0.05, wire_pitch = 0.3, size = (2,2), layer=lys['m2_nw'])
     snspd.rotate(90)
-    snspd.y = wire2.y
-    snspd.xmin = wire2.xmax + 1.5
+    snspd.y = wire.y
+    snspd.xmin = wire.xmax + 1
     heater = x_section << pg.rectangle((2.4, 2), layer=lys['m3_res'])
     heater.xmin = snspd.xmin
     heater.y = snspd.y
@@ -95,6 +85,16 @@ def do_something_interesting():
     via = insert('v5', heater.xmax - .2, heater.xmax-.05)
     wire = insert_wx('m5_wiring', .4, via.x)
     insert_wx('v3', .3, wire.x-.05)
+
+    # resistor
+    res = insert_wx('m3_res', 2, wire.xmax+1.5)
+    via1 = insert('v5', res.xmin+.1, res.xmin+.5)
+    wire1 = insert_wx('m5_wiring', .5, via1.x)
+    insert_wx('v3', .4, wire1.x)
+    via2 = insert('v5', res.xmax-.5, res.xmax-.1)
+    wire2 = insert_wx('m5_wiring', .5, via2.x)
+    insert_wx('v3', .4, wire2.x)
+    insert('wg_deep', wire1.xmin-.1, wire2.xmax+.1)
 
     return x_section
 
