@@ -53,6 +53,8 @@ docs: html
 
 docdeploy: html
 	# When NIST pages gets fixes, I should be able to delete my local nist-pages branch
+	git add $(BUILDDIR)/html
+	git commit -m "commit for documentation deploy"
 	git subtree push --prefix $(BUILDDIR)/html origin nist-pages
 
 .PHONY: clean purge test html latexpdf docs
