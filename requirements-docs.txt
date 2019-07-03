@@ -1,8 +1,0 @@
-recommonmark
-xmltodict
-Sphinx
-sphinx-autoapi
-sphinx-autobuild
-sphinx-rtd-theme
-sphinxcontrib-bibtex
-sphinxcontrib-napoleon

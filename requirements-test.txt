@@ -1,4 +1,0 @@
-phidl
-scipy
-lytest
-lymask
