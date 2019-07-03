@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Waveguide integrated SNSPD &#8212; OLMAC PDK 0.0.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Design Rule Checks" href="../drc/index.html" />
+    <link rel="prev" title="1x2 MMI Y-splitter" href="mmi1x2.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../drc/index.html" title="Design Rule Checks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmi1x2.html" title="1x2 MMI Y-splitter"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">PCell library</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="waveguide-integrated-snspd">
+<h1>Waveguide integrated SNSPD<a class="headerlink" href="#waveguide-integrated-snspd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>SNSPD is a superconducting nanowire single-photon detector. This device is waveguide coupled meaning it detects photons traveling in the silicon waveguide. A similar device with SiN waveguides was shown in <a class="reference internal" href="../zreferences.html#shainline-16" id="id1">[Sha16]</a> and <a class="reference internal" href="../zreferences.html#shainline-17" id="id2">[SBN+17]</a>.</p>
+<a class="reference internal image-reference" href="../../_images/snspd_image.png"><img alt="../../_images/snspd_image.png" src="../../_images/snspd_image.png" style="width: 45%;" /></a>
+</div>
+<div class="section" id="characteristics">
+<h2>Characteristics<a class="headerlink" href="#characteristics" title="Permalink to this headline">¶</a></h2>
+<p>The response on SiN measured in <a class="reference internal" href="../zreferences.html#shainline-16" id="id3">[Sha16]</a> is shown here. Response saturation was observed. Characterization on the SOI platform is still in progress.</p>
+<a class="reference internal image-reference" href="../../_images/snspd_response.pdf"><img alt="../../_images/snspd_response.pdf" src="../../_images/snspd_response.pdf" style="width: 45%;" /></a>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id4" style="width: 500px">
+<img alt="../../_images/snspd_cell.png" src="../../_images/snspd_cell.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The layout produced by the below code.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wg_to_snspd</span><span class="p">(</span><span class="n">wgnw_width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">wgnw_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">wgnw_gap</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+                <span class="n">num_squares</span><span class="o">=</span><span class="mf">5000.0</span><span class="p">,</span> <span class="n">meander_width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">meander_fill_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                <span class="n">wg_width</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Waveguide coupled to SNSPD with inductor (meander).</span>
+<span class="sd">        The length and width of the meander are chosen so that it is approximately square</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            meander_width (float): nanowire width within meander inductor</span>
+<span class="sd">            num_squares (float): total squares in meander and out-and-back</span>
+<span class="sd">            wgnw_width (float): width of out-and-back nanowire</span>
+<span class="sd">            wgnw_length (float): length of out-and-back</span>
+<span class="sd">            wgnw_gap (float): spacing between the out-and-back wires</span>
+<span class="sd">            wg_width (float): waveguide width</span>
+
+<span class="sd">        Ports:</span>
+<span class="sd">            el_1: wiring port</span>
+<span class="sd">            el_gnd: wiring port</span>
+<span class="sd">            wg_in: input optical port</span>
+<span class="sd">            de_edge: edge of explicit waveguide on the SNSPD side</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">D</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;wg_to_snspd&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Calculations and checks</span>
+    <span class="n">numsquares_wgnw</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">wgnw_length</span> <span class="o">/</span> <span class="n">wgnw_width</span>
+    <span class="n">numsquares_meander</span> <span class="o">=</span> <span class="n">num_squares</span> <span class="o">-</span> <span class="n">numsquares_wgnw</span>
+    <span class="k">if</span> <span class="n">numsquares_meander</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: Not enough squares in SNSPD meander. Clipped to 1000 from </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">numsquares_meander</span><span class="p">))</span>
+        <span class="n">numsquares_meander</span><span class="o">=</span><span class="mi">1000</span>
+    <span class="n">meander_pitch</span> <span class="o">=</span> <span class="n">meander_width</span> <span class="o">/</span> <span class="n">meander_fill_factor</span>
+    <span class="n">meander_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">numsquares_meander</span> <span class="o">*</span> <span class="n">meander_width</span> <span class="o">*</span> <span class="n">meander_pitch</span><span class="p">)</span>
+    <span class="n">wgnw_pitch</span> <span class="o">=</span> <span class="n">wgnw_width</span> <span class="o">+</span> <span class="n">wgnw_gap</span>
+    <span class="n">wgnw_distance_to_edge</span> <span class="o">=</span> <span class="n">wg_width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">wgnw_width</span> <span class="o">-</span> <span class="n">wgnw_gap</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">wgnw_distance_to_edge</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: nanowire will overhang side of waveguide by </span><span class="si">{:.3f}</span><span class="s1"> um&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">wgnw_distance_to_edge</span><span class="p">))</span>
+
+    <span class="n">numsquares_per_taper</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># approximate</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_squares&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numsquares_meander</span> <span class="o">+</span> <span class="n">numsquares_wgnw</span> <span class="o">-</span> <span class="n">meander_length</span><span class="o">/</span><span class="n">meander_width</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">numsquares_per_taper</span>
+    <span class="c1"># D.info[&#39;expected_resistance&#39;] = D.info[&#39;num_squares&#39;]*EXPECTED_RSQ_WSI</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;wire_width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wgnw_width</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">wgnw_length</span>
+
+    <span class="c1"># Geometry</span>
+    <span class="n">meander</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">pg</span><span class="o">.</span><span class="n">snspd</span><span class="p">(</span><span class="n">wire_width</span><span class="o">=</span><span class="n">meander_width</span><span class="p">,</span> <span class="n">wire_pitch</span><span class="o">=</span><span class="n">meander_pitch</span><span class="p">,</span>
+                            <span class="n">terminals_same_side</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">meander_length</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span>
+                            <span class="n">num_squares</span><span class="o">=</span><span class="n">numsquares_meander</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;m2_nw&#39;</span><span class="p">])</span>
+    <span class="n">meander</span><span class="o">.</span><span class="n">reflect</span><span class="p">(</span><span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">p2</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">Taper</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">optimal_step</span><span class="p">(</span><span class="n">start_width</span><span class="o">=</span><span class="n">wgnw_width</span><span class="p">,</span> <span class="n">end_width</span><span class="o">=</span><span class="n">meander_width</span><span class="p">,</span>
+                            <span class="n">num_pts</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width_tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">anticrowding_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span>
+                            <span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;m2_nw&#39;</span><span class="p">])</span>
+    <span class="n">taper1</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">Taper</span>
+    <span class="n">taper1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">meander</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">wgnw</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">pg</span><span class="o">.</span><span class="n">optimal_hairpin</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">wgnw_width</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="n">wgnw_pitch</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">wgnw_length</span><span class="p">,</span>
+                                   <span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;m2_nw&#39;</span><span class="p">])</span>
+    <span class="n">wgnw</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">taper1</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">taper2</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">Taper</span>
+    <span class="n">taper2</span><span class="o">.</span><span class="n">reflect</span><span class="p">()</span>
+    <span class="n">taper2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">wgnw</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Electrical ports</span>
+    <span class="n">exit_bend</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">pg</span><span class="o">.</span><span class="n">optimal_90deg</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">meander_width</span><span class="p">,</span> <span class="n">num_pts</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                                      <span class="n">length_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;m2_nw&#39;</span><span class="p">])</span>
+    <span class="n">exit_bend</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">taper2</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="s1">&#39;el_gnd&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">exit_bend</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">exit_taper</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">pg</span><span class="o">.</span><span class="n">optimal_step</span><span class="p">(</span><span class="n">start_width</span><span class="o">=</span><span class="n">meander_width</span><span class="p">,</span> <span class="n">end_width</span><span class="o">=</span><span class="n">meander_width</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                                      <span class="n">num_pts</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width_tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">anticrowding_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span>
+                                      <span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;m2_nw&#39;</span><span class="p">])</span>
+    <span class="n">exit_taper</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">meander</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="s1">&#39;el_1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">exit_taper</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># Waveguide and optical ports</span>
+    <span class="n">wg</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="n">pg</span><span class="o">.</span><span class="n">compass</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="n">wgnw_length</span> <span class="o">+</span> <span class="n">wgnw_distance_to_edge</span><span class="p">,</span> <span class="n">wg_width</span><span class="p">],</span> <span class="n">layer</span> <span class="o">=</span> <span class="n">lys</span><span class="p">[</span><span class="s1">&#39;wg_deep&#39;</span><span class="p">])</span>
+    <span class="n">wg</span><span class="o">.</span><span class="n">xmax</span> <span class="o">=</span> <span class="n">wgnw</span><span class="o">.</span><span class="n">xmax</span>
+    <span class="n">wg</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">wgnw</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="s1">&#39;de_edge&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">wg</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="s1">&#39;wg_in&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">wg</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">])</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="s1">&#39;de_edge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;is_waveguide_edge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="s1">&#39;wg_in&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">midpoint</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">pos</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">D</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Waveguide integrated SNSPD</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#characteristics">Characteristics</a></li>
+<li><a class="reference internal" href="#layout">Layout</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmi1x2.html"
+                        title="previous chapter">1x2 MMI Y-splitter</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../drc/index.html"
+                        title="next chapter">Design Rule Checks</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/src/cells/snspd.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../drc/index.html" title="Design Rule Checks"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmi1x2.html" title="1x2 MMI Y-splitter"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >PCell library</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>

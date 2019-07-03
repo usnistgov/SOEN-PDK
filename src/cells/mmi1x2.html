@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1x2 MMI Y-splitter &#8212; OLMAC PDK 0.0.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Waveguide integrated SNSPD" href="snspd.html" />
+    <link rel="prev" title="W-center LED" href="led.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="snspd.html" title="Waveguide integrated SNSPD"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="led.html" title="W-center LED"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">PCell library</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="x2-mmi-y-splitter">
+<h1>1x2 MMI Y-splitter<a class="headerlink" href="#x2-mmi-y-splitter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The MMI splitter</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>put in device image</p>
+</div>
+</div>
+<div class="section" id="characteristics">
+<h2>Characteristics<a class="headerlink" href="#characteristics" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Fill out values for
+* Loss
+* symmetry
+* backreflection
+* spectrum</p>
+</div>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id3" style="width: 500px">
+<img alt="../../_images/mmi1x2_cell.png" src="../../_images/mmi1x2_cell.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The layout produced by the below code.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mmi1x2</span><span class="p">(</span><span class="n">wg_width</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">length_port</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">length_mmi</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">width_mmi</span><span class="o">=</span><span class="mf">1.55</span><span class="p">,</span> <span class="n">gap_mmi</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+
+    <span class="n">D</span><span class="o">=</span><span class="n">Device</span><span class="p">()</span>
+
+    <span class="n">Port_wg</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">taper</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="n">length_port</span><span class="p">,</span><span class="n">width1</span><span class="o">=</span><span class="n">wg_width</span><span class="p">,</span><span class="n">width2</span><span class="o">=</span><span class="n">wg_width</span><span class="p">,</span><span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;wg_deep&#39;</span><span class="p">])</span>
+    <span class="n">port_in</span><span class="o">=</span><span class="n">D</span><span class="o">.</span><span class="n">add_ref</span><span class="p">(</span><span class="n">Port_wg</span><span class="p">)</span>
+    <span class="n">MMI</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">taper</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="n">length_mmi</span><span class="p">,</span><span class="n">width1</span><span class="o">=</span><span class="n">width_mmi</span><span class="p">,</span><span class="n">width2</span><span class="o">=</span><span class="n">width_mmi</span><span class="p">,</span><span class="n">layer</span><span class="o">=</span><span class="n">lys</span><span class="p">[</span><span class="s1">&#39;wg_deep&#39;</span><span class="p">])</span>
+    <span class="n">mmi</span><span class="o">=</span><span class="n">D</span><span class="o">.</span><span class="n">add_ref</span><span class="p">(</span><span class="n">MMI</span><span class="p">)</span>
+
+    <span class="n">mmi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">destination</span><span class="o">=</span><span class="n">port_in</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">port_up</span><span class="o">=</span><span class="n">D</span><span class="o">.</span><span class="n">add_ref</span><span class="p">(</span><span class="n">Port_wg</span><span class="p">)</span>
+    <span class="n">port_up</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">destination</span><span class="o">=</span><span class="n">mmi</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">port_up</span><span class="o">.</span><span class="n">movey</span><span class="p">(</span><span class="n">gap_mmi</span><span class="p">)</span>
+
+    <span class="n">port_down</span><span class="o">=</span><span class="n">D</span><span class="o">.</span><span class="n">add_ref</span><span class="p">(</span><span class="n">Port_wg</span><span class="p">)</span>
+    <span class="n">port_down</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">destination</span><span class="o">=</span><span class="n">mmi</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">port_down</span><span class="o">.</span><span class="n">movey</span><span class="p">(</span><span class="o">-</span><span class="n">gap_mmi</span><span class="p">)</span>
+
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="n">port_in</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="n">port_up</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">add_port</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="n">port_down</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">D</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1x2 MMI Y-splitter</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#characteristics">Characteristics</a></li>
+<li><a class="reference internal" href="#layout">Layout</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="led.html"
+                        title="previous chapter">W-center LED</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="snspd.html"
+                        title="next chapter">Waveguide integrated SNSPD</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/src/cells/mmi1x2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="snspd.html" title="Waveguide integrated SNSPD"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="led.html" title="W-center LED"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >PCell library</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>
