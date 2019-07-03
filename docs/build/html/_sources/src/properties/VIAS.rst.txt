@@ -1,0 +1,77 @@
+vias
+====
+NW Pad to Wiring
+----------------
+* resistance = 0.0
+* resistivity = 0.0
+* layer = v3
+* min_size = 0.5
+* component
+    * layer = m1_nwpad
+    * inclusion = 2.0
+* component
+    * layer = m5_wiring
+    * inclusion = 2.0
+
+LED Pad to Wiring
+-----------------
+* resistance = 0.0
+* resistivity = 0.0
+* layer = v3
+* min_size = 0.5
+* component
+    * layer = m4_ledpad
+    * inclusion = 2.0
+* component
+    * layer = m5_wiring
+    * inclusion = 2.0
+
+LED Pad to P+
+-------------
+* resistance = 140
+* layer = v3
+* min_size = 0.5
+* component
+    * layer = m4_ledpad
+    * inclusion = 0.0
+* component
+    * layer = wg_shallow
+    * inclusion = 2.0
+* component
+    * layer = dp_p+
+    * inclusion = 0.0
+
+LED Pad to N+
+-------------
+* resistance = 90
+* layer = v3
+* min_size = 0.5
+* component
+    * layer = m4_ledpad
+    * inclusion = 0.0
+* component
+    * layer = wg_shallow
+    * inclusion = 2.0
+* component
+    * layer = dp_n+
+    * inclusion = 0.0
+
+Bond Pad
+--------
+* resistance = 0.0
+* layer = v5
+* min_size = 40.0
+* component
+
+    * layer = m5_wiring
+    * inclusion = 5.0
+
+Probe Pad
+---------
+* resistance = 0.0
+* layer = v5
+* min_size = 100.0
+* component
+
+    * layer = m5_wiring
+    * inclusion = 5.0

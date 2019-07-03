@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>NIST SOEN Process Design Kits - deploy test &#8212; OLMAC PDK 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="src/installation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="src/installation.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">OLMAC PDK 0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nist-soen-process-design-kits-deploy-test">
+<h1>NIST SOEN Process Design Kits - deploy test<a class="headerlink" href="#nist-soen-process-design-kits-deploy-test" title="Permalink to this headline">¶</a></h1>
+<p>This technology package, a.k.a process design kit (PDK), defines the NIST superconducting optolectronics process: <strong>OLMAC</strong>. It is in the <a class="reference external" href="https://www.klayout.de">klayout</a> format of technology definition.</p>
+<p>OLMAC combines <strong>superconducting electronics</strong>, such as SNSPDs and three-terminal devices, <strong>active optoelectronics</strong>, such as LEDs and modulators, and <strong>passive optics</strong>, such as waveguides and resonators.</p>
+<p>Contributors: Sonia Buckley, Adam McCaughan, Jeff Chiles, Alex Tait, Saeed Khan, Jeff Shainline, Rich Mirin, Sae Woo Nam</p>
+<p>NIST, PML, Applied Physics, Faint/Quantum Nanophotonics group, Boulder, CO, United States</p>
+<p><a class="reference internal" href="src/installation.html#installation"><span class="std std-ref">Jump to installation</span></a></p>
+<div class="section" id="what-s-in-the-box">
+<h2>What’s in the box<a class="headerlink" href="#what-s-in-the-box" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="design-layers">
+<h3><a class="reference internal" href="src/layers.html#layers"><span class="std std-ref">Design Layers</span></a><a class="headerlink" href="#design-layers" title="Permalink to this headline">¶</a></h3>
+<p>GDS layers, datatypes, names, and appearance in the <code class="docutils literal notranslate"><span class="pre">.lyp</span></code> format</p>
+<dl class="simple">
+<dt>klayout_layers_OLMAC.lyp</dt><dd><p>Main design layers</p>
+</dd>
+<dt>camera_ready_OLMAC.lyp</dt><dd><p>Another layer appearance specification that is better for making figures in powerpoint or papers.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="pcells">
+<h3><a class="reference internal" href="src/cells/index.html#cells"><span class="std std-ref">PCells</span></a><a class="headerlink" href="#pcells" title="Permalink to this headline">¶</a></h3>
+<p>This PDK includes standard devices as fixed cells (GDS) and <a class="reference external" href="https://github.com/amccaugh/phidl">phidl</a> code (python). See the link above for usage instructions. These HTML pages include optical/electron micrographs and measured data of the standard devices.</p>
+<a class="reference external image-reference" href="src/cells/hTron.html"><img alt="_images/hTron_blender.png" src="_images/hTron_blender.png" style="height: 150px;" /></a>
+<a class="reference external image-reference" href="src/cells/led.html"><img alt="_images/led_blender.png" src="_images/led_blender.png" style="height: 150px;" /></a>
+<a class="reference external image-reference" href="src/cells/mmi1x2.html"><img alt="_images/mmi1x2_cell.png" src="_images/mmi1x2_cell.png" style="height: 150px;" /></a>
+</div>
+<div class="section" id="design-rules">
+<h3><a class="reference internal" href="src/drc/index.html#design-rules"><span class="std std-ref">Design Rules</span></a><a class="headerlink" href="#design-rules" title="Permalink to this headline">¶</a></h3>
+<p>They are visually explained in this documentation (not yet). A <code class="docutils literal notranslate"><span class="pre">.lydrc</span></code> file is included to integrate with klayout’s DRC engine.</p>
+</div>
+<div class="section" id="layer-stack-this-will-link-to-the-powerpoints">
+<h3>Layer Stack (this will link to the powerpoints)<a class="headerlink" href="#layer-stack-this-will-link-to-the-powerpoints" title="Permalink to this headline">¶</a></h3>
+<p>Thicknesses, materials, and fabrication steps.</p>
+<p><a class="reference internal" href="src/xsection.html#xsection"><span class="std std-ref">Cross Sections</span></a>: you can visualize the cross-sectional geometry of any layout in KLayout</p>
+</div>
+<div class="section" id="platform-properties">
+<h3><a class="reference internal" href="src/properties/index.html#properties"><span class="std std-ref">Platform Properties</span></a><a class="headerlink" href="#platform-properties" title="Permalink to this headline">¶</a></h3>
+<p>Measured behavioral properties of the platform, such as waveguide loss and wire resistance.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some of these properties are not yet measured, as indicated in the properties files (.xml).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These are just XML files. We have a package in development that allows you to read these properties into phidl and use them in your layout/analysis code. Updates to come.</p>
+</div>
+</div>
+<div class="section" id="mask-preparation-procedures">
+<h3>Mask preparation procedures<a class="headerlink" href="#mask-preparation-procedures" title="Permalink to this headline">¶</a></h3>
+<p>Section not finished. These files are found in the dataprep directory and run with the <code class="docutils literal notranslate"><span class="pre">lymask</span></code> package.</p>
+<p>If you are a user, you probably don’t have to worry about it.</p>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>PDK structure was modeled around the General Silicon Photonics (GSiP) tech found within the <a class="reference external" href="https://github.com/lukasc-ubc/SiEPIC-Tools">SiEPIC-Tools</a> project: (Lukas Chrostowski, Zeqin Lu, Jonas Flueckiger, Xu Wang, Jackson Klein, Amy Liu, Jaspreet Jhoja, and James Pond)</p>
+<p>This documentation is templated upon <a class="reference external" href="https://lightlab.readthedocs.io">lightlab</a>, the experimental frameworks of the Princeton Lightwave Research Laboratory: (Alex Tait, Thomas Ferreira de Lima, Bhavin Shastri, Mitch Nahmias, Heidi Miller, Siamak Abbaslou, Philip Yechi Ma, Chaoran Huang, Aashu Jha, Eric Blow, and Paul Prucnal)</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/layers.html">Layer Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/cells/index.html">PCell library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/drc/index.html">Design Rule Checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/xsection.html">Cross Sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/properties/index.html">Platform Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/zreferences.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/todo.html">Todo</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NIST SOEN Process Design Kits - deploy test</a><ul>
+<li><a class="reference internal" href="#what-s-in-the-box">What’s in the box</a><ul>
+<li><a class="reference internal" href="#design-layers"><span class="xref std std-ref">Design Layers</span></a></li>
+<li><a class="reference internal" href="#pcells"><span class="xref std std-ref">PCells</span></a></li>
+<li><a class="reference internal" href="#design-rules"><span class="xref std std-ref">Design Rules</span></a></li>
+<li><a class="reference internal" href="#layer-stack-this-will-link-to-the-powerpoints">Layer Stack (this will link to the powerpoints)</a></li>
+<li><a class="reference internal" href="#platform-properties"><span class="xref std std-ref">Platform Properties</span></a></li>
+<li><a class="reference internal" href="#mask-preparation-procedures">Mask preparation procedures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="src/installation.html"
+                        title="next chapter">Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="src/installation.html" title="Installation"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">OLMAC PDK 0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>W-center LED &#8212; OLMAC PDK 0.0.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1x2 MMI Y-splitter" href="mmi1x2.html" />
+    <link rel="prev" title="hTron" href="hTron.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mmi1x2.html" title="1x2 MMI Y-splitter"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hTron.html" title="hTron"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">PCell library</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="w-center-led">
+<h1>W-center LED<a class="headerlink" href="#w-center-led" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>W-centers are emissive centers in silicon produced by ion bombardment. By putting them in a PN junction in a waveguide, the W-centers can be excited electrically. This is the principle underlying the waveguide-coupled all-silicon light-emitting diode (LED) developed in <a class="reference internal" href="../zreferences.html#buckley-17" id="id1">[BCM+17]</a>.</p>
+<a class="reference internal image-reference" href="../../_images/led_blender.png"><img alt="../../_images/led_blender.png" src="../../_images/led_blender.png" style="width: 70%;" /></a>
+</div>
+<div class="section" id="characteristics">
+<h2>Characteristics<a class="headerlink" href="#characteristics" title="Permalink to this headline">¶</a></h2>
+<p>The light-current (LI) and current-voltage (IV) curves of a previous LED are pictured here. Optical intensity is measured in clicks per second from an on-chip single photon detector.</p>
+<a class="reference internal image-reference" href="../../_images/led_IV.pdf"><img alt="../../_images/led_IV.pdf" src="../../_images/led_IV.pdf" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="../../_images/led_LI.pdf"><img alt="../../_images/led_LI.pdf" src="../../_images/led_LI.pdf" style="width: 45%;" /></a>
+<p>The W-centers emit around 1220nm. The spectrum of the emitted light under different biasing conditions is shown here</p>
+<a class="reference internal image-reference" href="../../_images/led_spectrum.pdf"><img alt="../../_images/led_spectrum.pdf" src="../../_images/led_spectrum.pdf" style="width: 50%;" /></a>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Need to work out the standard values, make a python file, then make a GDS…</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">W-center LED</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#characteristics">Characteristics</a></li>
+<li><a class="reference internal" href="#layout">Layout</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hTron.html"
+                        title="previous chapter">hTron</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmi1x2.html"
+                        title="next chapter">1x2 MMI Y-splitter</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/src/cells/led.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mmi1x2.html" title="1x2 MMI Y-splitter"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hTron.html" title="hTron"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OLMAC PDK 0.0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >PCell library</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018 Faint Photonics Group and Quantum Nanophotonics Group, National Institute of Standards and Technology, Boulder, CO, United States.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>
