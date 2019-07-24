@@ -17,7 +17,7 @@
       points_per_circle: 80
 -   - mask_map
     - mask_nw_ebeam: m2_nw_ebeam
-      mask_nw_photo: m2_nw_photo
+      bb: m2_nw_photo
       mask_wg_ebeam: wg_full_ebeam
       mask_wg_photo: wg_full_photo
       mask_m5_wiring: m5_wiring + m5_gnd + gp_photo

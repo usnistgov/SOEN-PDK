@@ -50,7 +50,7 @@ This PDK includes standard devices as fixed cells (GDS) and `phidl <https://gith
 They are visually explained in this documentation (not yet). A ``.lydrc`` file is included to integrate with klayout's DRC engine.
 
 
-Layer Stack (this will link to the powerpoints)
+:ref:`Fabrication Process <fabrication>`
 ***********************************************
 Thicknesses, materials, and fabrication steps.
 
@@ -92,8 +92,9 @@ This documentation is templated upon `lightlab <https://lightlab.readthedocs.io>
     src/layers
     src/cells/index
     src/drc/index
+    src/fabrication/index
     src/xsection
     src/properties/index
-    src/zreferences
+    src/bibliography_page
     src/todo
 
