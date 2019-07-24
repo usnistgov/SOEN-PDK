@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Description
+-->
+
+<rules>
+  <min_width>
+    <dp_p+>3</dp_p+>
+    <dp_n+>3</dp_n+>
+    <dp_p>0.300</dp_p>
+    <dp_n>0.300</dp_n>
+    <dp_e>0.300</dp_e>
+    <m1_nwpad>0.500</m1_nwpad>
+    <m1_nwgnd>0.500</m1_nwgnd>
+    <m2_nw>0.040</m2_nw>
+    <m4_ledpad>0.500</m4_ledpad>
+    <m4_ledgnd>0.500</m4_ledgnd>
+    <m3_res>0.500</m3_res>
+    <m5_wiring>0.500</m5_wiring>
+    <m5_gnd>0.500</m5_gnd>
+    <wg_shallow>0.200</wg_shallow>
+    <wg_deep>0.200</wg_deep>
+    <wg_deep_photo>1.0</wg_deep_photo>
+    <v3>0.500</v3>
+    <v5>10</v5> <!-- run this by Jeff -->
+    <su8_thin>1</su8_thin>
+    <su8>1</su8>
+  </min_width>
+  <min_spacing>
+    <dp_p+>5</dp_p+>
+    <dp_n+>5</dp_n+>
+    <dp_p>0.300</dp_p>
+    <dp_n>0.300</dp_n>
+    <dp_e>0.300</dp_e>
+    <m1_nwpad>0.500</m1_nwpad>
+    <m1_nwgnd>0.500</m1_nwgnd>
+    <m2_nw>0.040</m2_nw>
+    <m4_ledpad>0.500</m4_ledpad>
+    <m4_ledgnd>0.500</m4_ledgnd>
+    <m3_res>0.500</m3_res>
+    <m5_wiring>2</m5_wiring>
+    <m5_gnd>2</m5_gnd>
+    <wg_shallow>0.200</wg_shallow>
+    <wg_deep>0.200</wg_deep>
+    <wg_deep_photo>1.0</wg_deep_photo>
+    <v3>2</v3>
+    <v5>10</v5> <!-- run this by Jeff -->
+    <su8_thin>1</su8_thin>
+    <su8>1</su8>
+  </min_spacing>
+  <inclusion>
+    <tmp>1</tmp>
+    <!-- heavymid-dopants
+        m1 and Wsi
+        m1m2 without v3
+        m3 and heavies
+        v3 m1m2 area and inset
+        v5 and m5 overlap
+        v5 and m5 inset -->
+  </inclusion>
+  <exclusion>
+    <tmp>1</tmp>
+    <!-- m5 and wg_deep and wg_shallow -->
+  </exclusion>
+</rules>

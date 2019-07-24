@@ -14,10 +14,11 @@ def convert_all(tech_dir=None):
     if tech_dir is None:
         tech_dir = olmac_dir
     tech_name = os.path.basename(tech_dir)
-    rstdir = os.path.join(doc_dir, 'src', 'properties')
+    rstdir_prop = os.path.join(doc_dir, 'src', 'properties')
     propdir = os.path.join(tech_dir, 'properties')
     for filename in iglob(propdir + '/*.xml'):
-        properties2rst(filename, rstdir)
+        if os.path.basename(filename) == 'RULES.xml': continue
+        properties2rst(filename, rstdir_prop)
 
 
 def properties2rst(xmlfile, outdir, title=None):

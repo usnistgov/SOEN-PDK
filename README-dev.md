@@ -11,10 +11,10 @@
 ### Directory structure
 It is designed to be able to hold independent PDKs for multiple processes. These can be installed into klayout one at a time.
 
-### How to document
-Jekyll setup, viewing your local changes, Markup languages, documentation structure...
+### Todo
+Change n+ to np
 
-### Notes on subtrees
+### Notes on documentation publishing
 The idea is to put the documentation build wherever you want, then push only that to the root of the nist-pages branch. This means you can organize your master however you want.
 
 See the Makefile for the commands. The reason you have to auto-add and commit every time is that pushing doesn't work unless your changes are committed.
