@@ -2,7 +2,7 @@
 
 Layer Definitions
 =================
-These are all the available layers listed as
+These are all the available layers. They are referred by token in layout code. They are listed as
 
 token : layer/datatype
     description
