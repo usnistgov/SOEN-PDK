@@ -4,9 +4,10 @@ Description
 -->
 
 <rules>
-  <min_width>
-    <dp_p+>3</dp_p+>
-    <dp_n+>3</dp_n+>
+  <rule>
+    <name>min_width</name>
+    <dp_pp>3</dp_pp>
+    <dp_np>3</dp_np>
     <dp_p>0.300</dp_p>
     <dp_n>0.300</dp_n>
     <dp_e>0.300</dp_e>
@@ -25,10 +26,11 @@ Description
     <v5>10</v5> <!-- run this by Jeff -->
     <su8_thin>1</su8_thin>
     <su8>1</su8>
-  </min_width>
-  <min_spacing>
-    <dp_p+>5</dp_p+>
-    <dp_n+>5</dp_n+>
+  </rule>
+  <rule>
+    <name>min_spacing</name>
+    <dp_pp>5</dp_pp>
+    <dp_np>5</dp_np>
     <dp_p>0.300</dp_p>
     <dp_n>0.300</dp_n>
     <dp_e>0.300</dp_e>
@@ -47,8 +49,9 @@ Description
     <v5>10</v5> <!-- run this by Jeff -->
     <su8_thin>1</su8_thin>
     <su8>1</su8>
-  </min_spacing>
-  <inclusion>
+  </rule>
+  <rule>
+    <name>inclusion</name>
     <tmp>1</tmp>
     <!-- heavymid-dopants
         m1 and Wsi
@@ -56,10 +59,12 @@ Description
         m3 and heavies
         v3 m1m2 area and inset
         v5 and m5 overlap
-        v5 and m5 inset -->
-  </inclusion>
-  <exclusion>
+        v5 an
+        <rule>d m5 inset -->
+  </rule>
+  <rule>
+    <name>exclusion</name>
     <tmp>1</tmp>
     <!-- m5 and wg_deep and wg_shallow -->
-  </exclusion>
+  </rule>
 </rules>
