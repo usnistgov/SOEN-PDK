@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-Description
+The design rules. These can be read by layout code, documentation code, and the lydrc.
 -->
 
 <rules>
   <rule>
-    <name>min_width</name>
+    <name>Width</name>
     <dp_pp>3</dp_pp>
     <dp_np>3</dp_np>
     <dp_p>0.300</dp_p>
@@ -28,7 +28,7 @@ Description
     <su8>1</su8>
   </rule>
   <rule>
-    <name>min_spacing</name>
+    <name>Spacing</name>
     <dp_pp>5</dp_pp>
     <dp_np>5</dp_np>
     <dp_p>0.300</dp_p>
@@ -51,8 +51,51 @@ Description
     <su8>1</su8>
   </rule>
   <rule>
-    <name>inclusion</name>
-    <tmp>1</tmp>
+    <name>Area</name>
+    <v3>10</v3>  <!-- um^2 -->
+    <v5>100</v5>  <!-- um^2 -->
+  </rule>
+  <!-- The commas mean OR -->
+  <rule>
+    <name>Overlap</name>
+    <to_WSi>
+      <layer1>m2_nw</layer1>
+      <layer2>m1_nwpad, m1_nwgnd</layer2>
+      <value>100</value>  <!-- um^2 -->
+    </to_WSi>
+  </rule>
+  <rule>
+    <name>Inclusion</name>
+    <!-- <WSi_via>
+      <layer_inner>m1_nwpad, m1_nwgnd</layer_inner>
+      <layer_outer>m2_nw</layer_outer>
+      <value>
+    </WSi_via> -->
+    <wirebond_via>
+      <layer_inner>v5</layer_inner>
+      <layer_outer>m5_wiring, m5_gnd</layer_outer>
+      <value>5</value>
+    </wirebond_via>
+    <via_to_dopant>
+      <layer_inner>v3</layer_inner>
+      <layer_outer>dp_np, dp_pp</layer_outer>
+      <value>5</value>
+    </via_to_dopant>
+    <via_to_nw>
+      <layer_inner>v3</layer_inner>
+      <layer_outer>m2_nw</layer_outer>
+      <value>5</value>
+    </via_to_nw>
+    <via_to_wiring>
+      <layer_inner>v3</layer_inner>
+      <layer_outer>m5_wiring, m5_gnd</layer_outer>
+      <value>5</value>
+    </via_to_wiring>
+    <via_to_pad>
+      <layer_inner>v3</layer_inner>
+      <layer_outer>m1_nwpad, m1_nwgnd, m4_ledpad, m4_ledgnd</layer_outer>
+      <value>2</value>
+    </via_to_pad>
     <!-- heavymid-dopants
         m1 and Wsi
         m1m2 without v3
@@ -63,7 +106,7 @@ Description
         <rule>d m5 inset -->
   </rule>
   <rule>
-    <name>exclusion</name>
+    <name>Exclusion</name>
     <tmp>1</tmp>
     <!-- m5 and wg_deep and wg_shallow -->
   </rule>
