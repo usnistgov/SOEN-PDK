@@ -1,0 +1,18 @@
+# Some typical dataprep commands
+# Excerpted from NIST OLMEC technology
+---
+-   - processor
+    - thread_count: 1
+-   - flatten
+-   - check_floorplan
+    - fp_safe: 50
+# -   - precomp
+#     - wg_deep: .0225
+-   - ground_plane
+    - Delta_gp: 10.0
+      points_per_circle: 80
+-   - mask_map
+    - mask_m5_wiring: m5_wiring + m5_gnd + gp_photo
+      mask_wg_photo: wg_deep + wg_deep_photo
+-   - align_corners
+...
