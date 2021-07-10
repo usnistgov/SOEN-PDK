@@ -20,6 +20,6 @@
       bb: m2_nw_photo
       mask_wg_ebeam: wg_full_ebeam
       mask_wg_photo: wg_full_photo
-      mask_m5_wiring: m5_wiring + m5_gnd + gp_photo
+      mask_m5_wiring: [m5_wiring, m5_gnd, gp_photo]
 -   - align_corners
 ...

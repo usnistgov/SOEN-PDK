@@ -1,0 +1,11 @@
+# DRC specification for lymask
+---
+-   - processor
+    - thread_count: 1
+-   drcX:
+      on_input: [v3, v5]
+-   width: {layer: wg_deep, value: 0.200, angle: 40}
+-   space: {layer: wg_deep, value: 0.200, angle: 40}
+-   inclusion: {inner: v3, outer: wg_deep, include: 0.100}
+-   exclusion: {lay1: m5_wiring, lay2: wg_deep, exclude: 0.500}
+...
